@@ -27,8 +27,8 @@ div{
 }
 
 #smilepic{
-  width: 50%;
-  height: 50%;
+   max-width: 50%;  /* Ensures it never scales larger than its container */
+  height: auto;     /* Preserves the original aspect ratio */
   display: flex;
   justify-content: center;
   align-items: center;
