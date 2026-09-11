@@ -19,3 +19,10 @@ p{
     text-shadow: 2px 2px 0px white;
     text-align: center;
 }
+
+div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
