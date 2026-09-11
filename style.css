@@ -1,0 +1,9 @@
+body{
+    background-color: blue;
+    margin: 0;
+}
+
+@font-face {
+    font-family: Redaction20;
+    src: url("fonts/Redaction20-Regular.otf") format("opentype");
+}
