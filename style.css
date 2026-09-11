@@ -10,8 +10,12 @@ body{
 
 h1{
     font-family: 'Redaction20', Arial, sans-serif;
+    text-shadow: 2px 2px 0px white;
+    text-align: center;
 }
 
 p{
     font-family: 'Redaction20', Arial, sans-serif;
+    text-shadow: 2px 2px 0px white;
+    text-align: center;
 }
