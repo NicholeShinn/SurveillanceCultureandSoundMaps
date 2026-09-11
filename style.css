@@ -10,7 +10,7 @@ body{
 
 h1{
     font-family: 'Redaction20', Arial, sans-serif;
-    text-shadow: 2px 2px 0px white;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
     text-align: center;
 }
 
@@ -24,5 +24,10 @@ div{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#smilepic{
+  width: 70%;
+  height: 70%;
 }
 
