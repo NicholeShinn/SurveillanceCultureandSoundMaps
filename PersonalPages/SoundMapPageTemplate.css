@@ -31,7 +31,7 @@ body{
   grid-template-columns: auto auto auto auto;
   column-gap: 20px;
   row-gap: 2px;
-  padding: 10%;
+  padding: 5%;
   margin: auto;
   background-image: ('https://img1.picmix.com/output/stamp/normal/9/8/1/4/644189_976b8.gif');
   justify-content: center;
