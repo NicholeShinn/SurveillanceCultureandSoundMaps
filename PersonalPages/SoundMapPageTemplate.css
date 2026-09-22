@@ -23,7 +23,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black
+    background-color: black;
 }
 
 .subpagecontainer {
@@ -33,6 +33,7 @@ body{
   row-gap: 2px;
   padding: 0%;
   margin: auto;
+  background-color: green;
 }
 
 .subpagecontainer div {
