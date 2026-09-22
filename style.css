@@ -27,4 +27,8 @@ p{
     background-color: black;
 }
 
+img{
+    width: auto;
+    max-height: 25%;
+}
 
