@@ -11,9 +11,16 @@ body{
 }
 
 #Paragraph1{
-    padding: 20px;
+    padding: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: yellow;
 }
+
+#audio1{    
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black}
