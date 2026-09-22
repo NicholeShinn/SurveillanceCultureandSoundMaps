@@ -4,5 +4,15 @@ body{
 }
 
 #Title{
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: pink;
+}
+
+#Paragraph1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: yellow;
 }
