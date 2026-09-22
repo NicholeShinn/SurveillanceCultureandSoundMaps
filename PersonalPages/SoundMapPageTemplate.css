@@ -25,3 +25,19 @@ body{
     align-items: center;
     background-color: black
 }
+
+.subpagecontainer {
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 20px;
+  row-gap: 2px;
+  padding: 0%;
+  margin: auto;
+}
+
+.subpagecontainer div {
+  padding: 5px;
+  margin: auto;
+  text-align: center;
+  line-height: 1.4em;
+}
