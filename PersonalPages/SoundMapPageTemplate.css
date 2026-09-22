@@ -30,15 +30,17 @@ body{
   display: inline-grid;
   grid-template-columns: auto auto auto;
   column-gap: 20px;
-  row-gap: 2px;
-  padding: 0%;
+  row-gap: 5px;
+  padding: 10%;
   margin: auto;
   background-color: green;
+  justify-content: center;
+  align-items: center;
 }
 
 .subpagecontainer div {
-  padding: 5px;
+  padding: 10px;
   margin: auto;
   text-align: center;
-  line-height: 1.4em;
+  line-height: 2em;
 }
