@@ -26,10 +26,4 @@ div{
   align-items: center;
 }
 
-.smilepic {
-  width: auto;  /* Ensures it never scales larger than its container */
-  max-height: 20%;     /* Preserves the original aspect ratio */
-  justify-content: center;
-  align-items: center;
-}
 
