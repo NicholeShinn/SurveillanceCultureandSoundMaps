@@ -25,6 +25,8 @@ p{
     justify-content: center;
     align-items: center;
     background-color: black;
+    width: auto;
+    max-height: 25%;
 }
 
 img{
