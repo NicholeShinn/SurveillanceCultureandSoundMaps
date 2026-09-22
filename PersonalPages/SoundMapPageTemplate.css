@@ -28,7 +28,7 @@ body{
 
 .subpagecontainer {
   display: inline-grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto;
   column-gap: 20px;
   row-gap: 2px;
   padding: 5%;
