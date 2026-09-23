@@ -1,5 +1,5 @@
 body{
-    background-color: blue;
+    background-color: #f700ff;
     margin: 0;
 }
 
@@ -7,7 +7,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f700ff;
 }
 
 #Paragraph1{
@@ -15,7 +14,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: yellow;
 }
 
 #audio1{    
@@ -23,7 +21,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
 }
 
 .subpagecontainer {
