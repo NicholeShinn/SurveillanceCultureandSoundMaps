@@ -1,14 +1,13 @@
 body{
     background-color: #f5c2ff;
     background-image: url("WorkshopImages/cherryblossom.jpg");
-    background-repeat: repeat-x;
-    background-repeat: repeat-y;
+    background-repeat: repeat;
     margin: 10px;
 }
 
 @font-face{
     font-family: Redaction20;
-    src: url("fonts/Redaction20-Regular.otf") format("opentype");
+    src: url("SurveillanceCultureandSoundMaps/fonts/Redaction20-Regular.otf") format("opentype");
 }
 
 h1{
@@ -27,5 +26,4 @@ p{
   display: flex;
   justify-content: center; /* horizontal */
   align-items: center;     /* vertical */
-  height: 500px;           /* parent needs height for vertical centering */
 }
