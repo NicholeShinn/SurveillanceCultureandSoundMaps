@@ -5,7 +5,7 @@ body{
 
 @font-face{
     font-family: Redaction20;
-    src: url("fonts/Redaction20-Regular.otf") format("opentype");
+    src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/fonts/Redaction20-Regular.otf") format("opentype");
 }
 
 h1{
