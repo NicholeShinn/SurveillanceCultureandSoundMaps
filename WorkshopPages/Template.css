@@ -27,3 +27,10 @@ p{
   justify-content: center; /* horizontal */
   align-items: center;     /* vertical */
 }
+
+#lorem{
+    background-color: #f5c2ff;
+    font-family: 'Redaction20', Arial, sans-serif;
+    text-shadow: 2px 2px 0px white;
+    text-align: center;
+}
