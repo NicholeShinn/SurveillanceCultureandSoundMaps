@@ -42,3 +42,13 @@ p{
     text-shadow: 2px 2px 0px white;
     text-align: center;
 }
+
+/* #creating a flex grid alignment for div elements that are text based */
+.mycontainer {
+  width:100%;
+  overflow:auto;
+}
+.mycontainer div {
+  width:33%;  
+  float:left;
+}
