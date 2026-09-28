@@ -22,7 +22,7 @@ h1{
 /* This is where you manage your paragraph styling. */
 p{
     font-family: 'Redaction20', Arial, sans-serif;
-    text-shadow: 2px 2px 0px white;
+    text-shadow: 2px 2px 0px #f0afe9;
     text-align: center;
 }
 
