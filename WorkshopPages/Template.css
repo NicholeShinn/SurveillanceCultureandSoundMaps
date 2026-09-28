@@ -43,7 +43,7 @@ p{
     text-align: center;
 }
 
-/* #creating a flex grid alignment for div elements that are text based */
+/* #creating a flex grid alignment for div elements that are text based. Right now this is for 3 columns, hence the 33% */
 .mycontainer {
   width:100%;
   overflow:auto;
