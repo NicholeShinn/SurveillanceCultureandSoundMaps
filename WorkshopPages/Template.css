@@ -31,12 +31,13 @@ p{
   display: flex;
   justify-content: center; /* horizontal */
   align-items: center;     /* vertical */
+  padding: 10px;
 }
 
 /* #lorem is reference to an ID you assigned in the html sheet. */
 #lorem{
     background-color: #f5c2ff;
-    padding: 20px;
+    padding: 50px;
     font-family: 'Redaction20', Arial, sans-serif;
     text-shadow: 2px 2px 0px white;
     text-align: center;
