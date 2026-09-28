@@ -1,5 +1,8 @@
 body{
     background-color: #f5c2ff;
+    background-image: url("WorkshopPages/WorkshopImages/cherryblossom.jpg");
+    background-repeat: repeat-x;
+    background-repeat: repeat-y;
     margin: 10px;
 }
 
