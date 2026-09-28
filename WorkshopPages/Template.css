@@ -8,20 +8,20 @@ body{
 
 /* You can import fonts and use them in your pages. Making sure you reference the correct root lineage for the source URL is important. */
 @font-face{
-    font-family: Redaction20;
-    src: url("SurveillanceCultureandSoundMaps/fonts/Redaction20-Regular.otf") format("opentype");
+    font-family: Earthbound;
+    src: url("WorkshopPages/WorkshopFonts/earthboundzero.ttf") format("truetype");
 }
 
 /* There are a total of 6 Headers, ranging from largest to lowest. You can manage the effects of headers here, and then make sure you reference h1 in your html.*/
 h1{
-    font-family: 'Redaction20', Arial, sans-serif;
+    font-family: 'Earthbound', Arial, sans-serif;
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
     text-align: center;
 }
 
 /* This is where you manage your paragraph styling. */
 p{
-    font-family: 'Redaction20', Arial, sans-serif;
+    font-family: 'Earthbound', Arial, sans-serif;
     text-shadow: 2px 2px 0px #f0afe9;
     text-align: center;
 }
