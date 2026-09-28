@@ -9,7 +9,7 @@ body{
 /* You can import fonts and use them in your pages. Making sure you reference the correct root lineage for the source URL is important. */
 @font-face{
     font-family: Earthbound;
-    src: url("WorkshopPages/WorkshopFonts/earthboundzero.ttf") format("truetype");
+    src: url("WorkshopFonts/earthboundzero.ttf") format("truetype");
 }
 
 /* There are a total of 6 Headers, ranging from largest to lowest. You can manage the effects of headers here, and then make sure you reference h1 in your html.*/
