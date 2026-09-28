@@ -22,3 +22,10 @@ p{
     text-shadow: 2px 2px 0px white;
     text-align: center;
 }
+
+.imagediv{
+  display: flex;
+  justify-content: center; /* horizontal */
+  align-items: center;     /* vertical */
+  height: 500px;           /* parent needs height for vertical centering */
+}
