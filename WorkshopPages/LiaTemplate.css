@@ -1,7 +1,7 @@
 /* Body represents everything that exists on the page, so all content is referenced here. This is great for overall background and margins */
 body{
     background-color: #f5c2ff;
-    background-image: url("WorkshopImages/cherryblossom.jpg");
+    background-image: url("WorkshopImages/lia images/Dolly_at_Opening_1986.jpg");
     background-repeat: repeat;
     margin: 10px;
 }
@@ -9,7 +9,7 @@ body{
 /* You can import fonts and use them in your pages. Making sure you reference the correct root lineage for the source URL is important. */
 @font-face{
     font-family: Earthbound;
-    src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/fonts/Redaction-Regular.otf") format("opentype");
+    src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/fonts/Earthbound-Regular.otf") format("opentype");
 }
 
 /* There are a total of 6 Headers, ranging from largest to lowest. You can manage the effects of headers here, and then make sure you reference h1 in your html.*/
@@ -51,4 +51,6 @@ p{
 .mycontainer div {
   width:33%;  
   float:left;
+  box-shadow: 5px 5px 8px blue, 10px 10px 8px red, 15px 15px 8px green;
 }
+
