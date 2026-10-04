@@ -1,7 +1,7 @@
 /* Body represents everything that exists on the page, so all content is referenced here. This is great for overall background and margins */
 body{
     background-color: #f5c2ff;
-    background-image: url("https://mms.businesswire.com/media/20250502493979/en/2454994/5/Dolly_at_Opening_1986.jpg?download=1&_gl=1*1qtdbjt*_gcl_au*OTY2OTk4MTg2LjE3OTExNDUzNDA.*_ga*MTQyMzcyNzkzMy4xNzkxMTQ1MzQw*_ga_ZQWF70T3FK*czE3OTExNDUzNDAkbzEkZzAkdDE3OTExNDUzNDEkajU5JGwwJGgw");
+    background-image: url("WorkshopImages/lia images/Screenshot 2026-10-04 at 4.31.42 PM.png"); width: 100%;
     background-repeat: repeat;
     margin: 0px;
 }
