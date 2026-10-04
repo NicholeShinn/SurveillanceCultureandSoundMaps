@@ -1,7 +1,7 @@
 /* Body represents everything that exists on the page, so all content is referenced here. This is great for overall background and margins */
 body{
-    background-color: #f5c2ff;
-    background-image: url("WorkshopImages/cherryblossom.jpg");
+    background-color: #3085ac;
+    background-image: url("WorkshopImages/skybackground.jpg");
     background-repeat: repeat;
     margin: 10px;
 }
