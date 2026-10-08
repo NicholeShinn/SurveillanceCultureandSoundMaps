@@ -1,6 +1,18 @@
+@font-face {
+    font-family: Earthbound;
+    src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalFonts/earthboundzero.ttf") format("truetype");
+}
+
+
 body{
     background-color: #f700ff;
     margin: 0;
+}
+
+h3 {
+    font-family: 'Earthbound', Arial, sans-serif;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    text-align: center;
 }
 
 #Title{
