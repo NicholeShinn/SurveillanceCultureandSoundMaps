@@ -83,7 +83,7 @@ h3 {
 }
 
 .subpagecontainer {
-  display: inline-grid;
+  display: grid;
   grid-template-columns: auto auto auto;
   column-gap: 20px;
   row-gap: 2px;
