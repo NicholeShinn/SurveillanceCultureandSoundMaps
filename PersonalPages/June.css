@@ -1,6 +1,6 @@
 @font-face {
-    font-family: Moonlight;
-    src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalFonts/Basteleur-Moonlight.otf") format("opentype");
+    font-family: Milesdane;
+    src: url("https://junekramer.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalFonts/Milesdane-Trial.otf") format("opentype");
 }
 
 
@@ -10,7 +10,7 @@ body{
 }
 
 h3 {
-    font-family: 'Moonlight', Arial, sans-serif;
+    font-family: 'Milesdane', Milesdane, sans-serif;
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #f41703, 0 0 60px #e60073, 0 0 70px #e60073;
     text-align: center;
 }
