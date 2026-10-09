@@ -1,0 +1,176 @@
+@font-face {
+    font-family: Moonlight;
+    src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalFonts/Basteleur-Moonlight.otf") format("opentype");
+}
+
+
+body{
+    background-color: #f700ff;
+    margin: 0;
+}
+
+h3 {
+    font-family: 'Moonlight', Arial, sans-serif;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    text-align: center;
+}
+
+#Title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Paragraph1{
+    padding: 40px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Paragraph2 {
+    padding: 40px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Paragraph2:hover {
+    transform: rotate(20deg);
+    text-shadow: 0px 3px 3px black, 0 0 25px #3305FD, 1px 0 3px #A1014C, 0 0 40px #5601A1;
+    filter: blur(3px);
+    color: white;
+    transition: ease-in-out 0.2s;
+}
+
+#audio1{    
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pic01 {
+    filter: drop-shadow(10px 10px 10px black);
+    border-radius: 8px;
+}
+
+#pic02 {
+    filter: drop-shadow(10px 10px 10px black);
+    border-radius: 50%;
+}
+
+#pic03 {
+    filter: drop-shadow(10px 10px 10px black);
+    opacity: 0.5;
+}
+
+#pic04 {
+    filter: drop-shadow(10px 10px 10px black);
+    filter: brightness(150%);
+}
+
+#pic05 {
+    filter: drop-shadow(10px 10px 10px black);
+    filter: grayscale(60%);
+}
+
+#pic06 {
+    filter: drop-shadow(10px 10px 10px black);
+    filter: hue-rotate(200deg);
+}
+
+.subpagecontainer {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 20px;
+  row-gap: 2px;
+  padding: 5%;
+  margin: auto;
+  background-image: url(https://img1.picmix.com/output/stamp/normal/9/8/1/4/644189_976b8.gif);
+  background-repeat: repeat;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.subpagecontainer div {
+  padding: 5px;
+  margin: auto;
+  text-align: center;
+  line-height: 1em;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes colorshift {
+    0% {
+        background-color: red;}
+    25% {
+        background-color: yellow;}
+    50% {
+        background-color: blue;}
+    75% {
+        background-color: green;}
+    100% {
+        background-color: red;}
+}
+
+#hoverpicholder {
+    padding: 40px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    animation-name: colorshift;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+#hoverpic {
+    padding: 40px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hoverpic:hover {
+    transform: scale(2.5) rotate(10deg) translate(0px, -20px);
+    filter: blur(3px);
+    transition: ease-in-out 0.5s;
+    }
+
+#animatedpic {
+    padding: 40px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    animation-name: animatedpicture;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes animatedpicture {
+    0% {
+        left: 0px;
+        top: 0px;}
+    50% {
+        left: 0px;
+        top: 200px;
+        transform: scale(0.5, 0.5);}
+    75% {
+        left: 0px;
+        top: 200px;
+        transform: scale(-1, -1);}
+    100% {
+        left: 0px;
+        top: 0px;}
+}
