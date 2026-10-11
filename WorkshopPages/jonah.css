@@ -1,0 +1,55 @@
+/* Body represents everything that exists on the page, so all content is referenced here. This is great for overall background and margins */
+body{
+    background-color: #e9e4d9;
+    background-image: url("WorkshopImages/jonahbackground.jpg");
+    background-repeat: repeat;
+    margin: 10px;
+}
+
+/* You can import fonts and use them in your pages. Making sure you reference the correct root lineage for the source URL is important. */
+@font-face{
+    font-family: Earthbound;
+    src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/fonts/Redaction-Regular.otf") format("opentype");
+}
+
+/* There are a total of 6 Headers, ranging from largest to lowest. You can manage the effects of headers here, and then make sure you reference h1 in your html.*/
+h1{
+    font-family: 'Earthbound', Arial, sans-serif;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    text-align: center;
+}
+
+/* This is where you manage your paragraph styling. */
+p{
+    font-family: 'Earthbound', Arial, sans-serif;
+    text-shadow: 2px 2px 0px #03aefd;
+    text-align: center;
+}
+
+/* .imagediv is reference to a class you assigned in the html sheet. */
+.imagediv{
+  display: flex;
+  justify-content: center; /* horizontal */
+  align-items: center;     /* vertical */
+  padding: 30px;
+  box-shadow: 10px 10px #d5d5d5;
+}
+
+/* #lorem is reference to an ID you assigned in the html sheet. */
+#lorem{
+    background-color: #f5c2ff;
+    padding: 50px;
+    font-family: 'Redaction20', Arial, sans-serif;
+    text-shadow: 2px 2px 0px white;
+    text-align: center;
+}
+
+/* #creating a flex grid alignment for div elements that are text based. Right now this is for 3 columns, hence the 33% */
+.mycontainer {
+  width:100%;
+  overflow:auto;
+}
+.mycontainer div {
+  width:33%;  
+  float:left;
+}
