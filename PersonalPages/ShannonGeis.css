@@ -1,0 +1,43 @@
+body{
+    background-color: #f700ff;
+    margin: 0;
+}
+
+#Title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Paragraph1{
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#audio1{    
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subpagecontainer {
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 20px;
+  row-gap: 2px;
+  padding: 5%;
+  margin: auto;
+  background-image: ('https://img1.picmix.com/output/stamp/normal/9/8/1/4/644189_976b8.gif');
+  justify-content: center;
+  align-items: center;
+}
+
+.subpagecontainer div {
+  padding: 5px;
+  margin: auto;
+  text-align: center;
+  line-height: 2em;
+}
