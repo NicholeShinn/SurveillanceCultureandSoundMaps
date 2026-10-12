@@ -5,7 +5,7 @@
 
 
 body{
-    background-color: #f700ff;
+    background-color: #9eecae;
     margin: 0;
 }
 
@@ -173,4 +173,30 @@ h3 {
     100% {
         left: 0px;
         top: 0px;}
+}
+
+
+#truckanimation {
+    padding: 40px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    animation-name: truckanimation;
+    animation-duration: 9s;
+    animation-iteration-count: infinite;
+}
+@keyframes truckanimation {
+  0%   {
+    left:-1000px; top:0px;}
+  50%  {
+    left:200px; top:0px;
+    transform: scale(0.5, 0.5)}
+  75%  {
+    left:100px; top:00px;
+    transform: scale(1, 1)}
+  100% {
+    left:0px; top:0px;}
 }
