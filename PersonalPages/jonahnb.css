@@ -10,8 +10,8 @@ body{
 }
 
 h3 {
-    font-family: 'Moonlight', Arial, sans-serif;
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    font-family: 'epilog', Arial, sans-serif;
+    text-shadow: 0 0 10px #fff, 0 0 20px #090707, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
     text-align: center;
 }
 
@@ -19,7 +19,7 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Redaction;
+    font-family: epilog;
 }
 
 #Paragraph1{
@@ -51,6 +51,13 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#centeredimage {
+    filter: drop-shadow(3px 3px 3px black);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
 }
 
 #pic01 {
@@ -90,7 +97,6 @@ h3 {
   row-gap: 2px;
   padding: 5%;
   margin: auto;
-  background-image: url(https://img1.picmix.com/output/stamp/normal/9/8/1/4/644189_976b8.gif);
   background-repeat: repeat;
   justify-content: center;
   justify-items: center;
@@ -231,4 +237,22 @@ h3 {
     left: -1300px; top:5px;
     transform: scale(1.00, 1.00)
   }
+}
+
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+  padding: 10px;
+}
+
+.text {
+  float: right;
+  width: 30%;
+}
+
+.images {
+  float: right;
+  width: 70%;
 }
