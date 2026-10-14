@@ -1,5 +1,5 @@
 @font-face {
-    font-family: Moonlight;
+    font-family: Redaction;
     src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalFonts/Basteleur-Moonlight.otf") format("opentype");
 }
 
@@ -19,6 +19,7 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: Redaction;
 }
 
 #Paragraph1{
@@ -225,8 +226,9 @@ h3 {
     transform: scale(1.0, 1.0)}
   75%  {
     left:-100px; top:00px;
-    transform: scale(1.75, 1.75)}
+    transform: scale(1.35, 1.35)}
   100%  {
     left: -1300px; top:5px;
+    transform: scale(1.00, 1.00)
   }
 }
