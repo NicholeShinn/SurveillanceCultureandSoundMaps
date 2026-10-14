@@ -229,13 +229,13 @@ h3 {
     transform: scale(.40, .40)}
   50%  {
     left:0px; top:0px;
-    transform: scale(1.0, 1.0)}
+    transform: scale(.64, .64)}
   75%  {
     left:-100px; top:00px;
-    transform: scale(1.35, 1.35)}
+    transform: scale(1.0, 1.0)}
   100%  {
     left: -1300px; top:5px;
-    transform: scale(1.00, 1.00)
+    transform: scale(.75, .70)
   }
 }
 
