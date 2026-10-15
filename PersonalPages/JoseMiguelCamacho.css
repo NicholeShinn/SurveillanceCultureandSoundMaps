@@ -1,9 +1,12 @@
 @font-face {
-    font-family: MoMA Sans;
-    src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalFonts/MoMA Sans Web Semibold Regular.otf") format("opentype");
+    font-family: "MoMA Sans Web Semibold Regular";
+    src: url("https://db.onlinewebfonts.com/t/211be15f3b79857b52ec64538f6032a2.eot");
+    src: url("https://db.onlinewebfonts.com/t/211be15f3b79857b52ec64538f6032a2.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/211be15f3b79857b52ec64538f6032a2.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/211be15f3b79857b52ec64538f6032a2.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/211be15f3b79857b52ec64538f6032a2.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/211be15f3b79857b52ec64538f6032a2.svg#MoMA Sans Web Semibold Regular")format("svg");
 }
-
-
 
 body{
     background-color: #ffffff;
@@ -11,7 +14,7 @@ body{
 }
 
 h3 {
-    font-family: 'MoMA Sans Web Semibold Regular', MoMA Sans, sans-serif;
+    font-family: 'MoMA Sans Web Semibold Regular';
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 50px #ffffff, 0 0 60px #ffffff, 0 0 70px #ffffff;
     text-align: center;
 }
