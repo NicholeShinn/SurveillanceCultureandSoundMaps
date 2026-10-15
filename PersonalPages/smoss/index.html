@@ -1,0 +1,836 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>I visit you at the places where you watch me</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;1,500&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one-screen app. A harbor chart fills the screen, a location index runs down the left (below on phones),
+   hover cards float over the chart, and a full-screen viewer opens over everything. Marks use chart magenta. */
+:root {
+  --bg: #F6F7F3;
+  --panel: #FBFBF8;
+  --land: #F1F2EC;
+  --land-2: #E3E6DE;
+  --land-edge: #95A4A2;
+  --water: #BCD1DA;
+  --water-line: #A6C0CB;
+  --park: #CFDEC6;
+  --fg: #1C292F;
+  --muted: #5B6C72;
+  --rule: #D7DDDA;
+  --mark: #AE2475;
+  --mark-ring: #FFFFFF;
+  --card: #FFFFFF;
+  --shadow: 0 10px 30px rgba(20, 40, 50, .18), 0 2px 6px rgba(20, 40, 50, .12);
+  --viewer-bg: #0E1518;
+  --viewer-fg: #E8EEF0;
+  --viewer-muted: #9AAAB0;
+  --font-display: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Barlow", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12191C; --panel: #151D21; --land: #212B30; --land-2: #1A2326; --land-edge: #3D4F55;
+    --water: #0D161A; --water-line: #18262D; --park: #22352B; --fg: #E3EAEC; --muted: #93A3A9; --rule: #26343A;
+    --mark: #E866B2; --mark-ring: #12191C; --card: #1B2428;
+    --shadow: 0 10px 30px rgba(0, 0, 0, .5), 0 2px 6px rgba(0, 0, 0, .4);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12191C; --panel: #151D21; --land: #212B30; --land-2: #1A2326; --land-edge: #3D4F55;
+  --water: #0D161A; --water-line: #18262D; --park: #22352B; --fg: #E3EAEC; --muted: #93A3A9; --rule: #26343A;
+  --mark: #E866B2; --mark-ring: #12191C; --card: #1B2428;
+  --shadow: 0 10px 30px rgba(0, 0, 0, .5), 0 2px 6px rgba(0, 0, 0, .4);
+  color-scheme: dark;
+}
+
+html, body { height: 100%; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.45; overflow: hidden; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--mark); outline-offset: 2px; }
+
+.app { height: 100%; display: grid; grid-template-columns: 300px minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); }
+.head { grid-column: 1 / -1; display: flex; align-items: baseline; justify-content: space-between; gap: 8px 24px; flex-wrap: wrap;
+  padding: 12px 20px; border-bottom: 1px solid var(--rule); background: var(--panel); }
+.head h1 { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 26px; letter-spacing: .01em; line-height: 1.1; text-wrap: balance; }
+.head p { margin: 0; color: var(--muted); font-size: 13.5px; }
+.sample { display: inline-block; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: .08em;
+  color: var(--mark); border: 1px solid currentColor; border-radius: 3px; padding: 1px 6px; margin-right: 8px; vertical-align: 1px; }
+
+.index { background: var(--panel); border-right: 1px solid var(--rule); overflow-y: auto; min-height: 0; padding-block: 8px 16px; }
+.index h2 { margin: 8px 20px 6px; font-family: var(--font-display); font-weight: 600; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.index ol { list-style: none; margin: 0; padding: 0; }
+.loc { width: 100%; display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 2px 10px; align-items: start; text-align: left;
+  background: none; border: 0; border-top: 1px solid var(--rule); padding: 12px 20px; cursor: pointer; }
+.index li:first-child .loc { border-top: 0; }
+.loc:hover, .loc.is-hot { background: color-mix(in srgb, var(--mark) 8%, transparent); }
+.loc .num { grid-row: span 3; width: 24px; height: 24px; border-radius: 50%; background: var(--mark); color: #fff; display: grid; place-items: center;
+  font-family: var(--font-mono); font-size: 12px; font-weight: 500; margin-top: 1px; }
+.loc .name { font-family: var(--font-display); font-weight: 600; font-size: 19px; line-height: 1.15; }
+.loc .boro { color: var(--muted); font-size: 13px; }
+.loc .ll { font-family: var(--font-mono); font-size: 11.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.chart { position: relative; overflow: hidden; background: var(--water); touch-action: none; cursor: grab; min-height: 0; }
+.chart.is-dragging { cursor: grabbing; }
+.chart svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.land-nyc { fill: var(--land); stroke: var(--land-edge); stroke-width: 1.2; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.park { fill: var(--park); stroke: none; }
+.lbl-park { font-family: var(--font-display); font-style: italic; font-weight: 600; font-size: 13px; letter-spacing: .08em; color: color-mix(in srgb, var(--fg) 55%, var(--park)); }
+.land-other { fill: var(--land-2); stroke: var(--land-edge); stroke-width: 1; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.grat { stroke: var(--water-line); stroke-width: 1; vector-effect: non-scaling-stroke; fill: none; }
+.grat-land { stroke: var(--land-edge); stroke-opacity: .25; stroke-width: 1; vector-effect: non-scaling-stroke; fill: none; stroke-dasharray: 3 4; }
+.contour { stroke: var(--water-line); stroke-width: 1.2; vector-effect: non-scaling-stroke; fill: none; }
+
+.layer { position: absolute; inset: 0; pointer-events: none; }
+.lbl { position: absolute; transform: translate(-50%, -50%); white-space: nowrap; pointer-events: none; user-select: none; }
+.lbl-boro { font-family: var(--font-display); font-weight: 600; font-size: 14px; letter-spacing: .28em; text-transform: uppercase; color: var(--muted); }
+.lbl-other { font-family: var(--font-display); font-weight: 500; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); opacity: .75; }
+.lbl-water { font-family: var(--font-display); font-style: italic; font-weight: 500; font-size: 13px; letter-spacing: .06em; color: color-mix(in srgb, var(--fg) 45%, var(--water)); }
+.edge-tick { position: absolute; font-family: var(--font-mono); font-size: 10px; color: var(--muted); pointer-events: none; font-variant-numeric: tabular-nums; }
+
+.pin { position: absolute; width: 30px; height: 30px; margin: -15px 0 0 -15px; border: 0; padding: 0; background: none; cursor: pointer; pointer-events: auto; }
+.pin span { position: absolute; inset: 3px; border-radius: 50%; background: var(--mark); box-shadow: 0 0 0 2.5px var(--mark-ring), 0 2px 6px rgba(0,0,0,.3);
+  display: grid; place-items: center; color: #fff; font-family: var(--font-mono); font-size: 12px; font-weight: 500; transition: transform .15s ease; }
+.pin::before { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 1.5px solid var(--mark); opacity: 0; transform: scale(.7); transition: opacity .2s, transform .2s; }
+.pin:hover span, .pin.is-hot span { transform: scale(1.15); }
+.pin:hover::before, .pin.is-hot::before { opacity: .7; transform: scale(1); }
+
+.tools { position: absolute; right: 14px; bottom: 14px; display: flex; flex-direction: column; border-radius: 6px; overflow: hidden; box-shadow: var(--shadow); background: var(--card); }
+.tools button { width: 38px; height: 38px; border: 0; background: var(--card); cursor: pointer; font-size: 20px; line-height: 1; display: grid; place-items: center; }
+.tools button + button { border-top: 1px solid var(--rule); }
+.tools button:hover { background: color-mix(in srgb, var(--mark) 10%, var(--card)); }
+.tools svg { width: 16px; height: 16px; position: static; }
+.readout { position: absolute; left: 14px; bottom: 14px; display: flex; flex-direction: column; gap: 6px; pointer-events: none;
+  font-family: var(--font-mono); font-size: 11px; color: var(--fg); font-variant-numeric: tabular-nums; }
+.scalebar { display: flex; flex-direction: column; gap: 3px; }
+.scalebar .bar { height: 6px; border: 1.5px solid var(--fg); border-top: 0; }
+.cursor { color: var(--muted); min-height: 1.3em; }
+
+.card { position: absolute; z-index: 5; width: 240px; max-width: calc(100% - 24px); background: var(--card); border-radius: 8px; box-shadow: var(--shadow);
+  overflow: hidden; pointer-events: auto; opacity: 0; transform: translateY(4px); transition: opacity .14s ease, transform .14s ease; }
+.card.is-on { opacity: 1; transform: none; }
+.card img { display: block; width: 100%; aspect-ratio: 8 / 5; object-fit: cover; }
+.card .body { padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 4px; }
+.card h3 { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 20px; line-height: 1.1; }
+.card p { margin: 0; white-space: pre-line; font-size: 13.5px; color: var(--muted); }
+.card .go { margin-top: 6px; align-self: flex-start; border: 0; background: var(--mark); color: #fff; border-radius: 4px; padding: 6px 10px; font-weight: 600; font-size: 13px; cursor: pointer; }
+.card .hint { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .04em; color: var(--muted); margin-top: 4px; }
+
+/* Full-screen viewer: deliberately always dark, like a darkened gallery. */
+.viewer { position: fixed; inset: 0; z-index: 20; background: var(--viewer-bg); color: var(--viewer-fg); display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px; opacity: 0; transition: opacity .25s ease; color-scheme: dark; }
+.viewer.is-on { opacity: 1; }
+.viewer .photo { position: relative; min-height: 0; min-width: 0; display: grid; place-items: center; }
+.viewer .photo canvas, .viewer .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.viewer aside { padding: calc(24px + env(safe-area-inset-top, 0px)) 24px calc(24px + env(safe-area-inset-bottom, 0px)); display: flex; flex-direction: column; gap: 14px; overflow-y: auto; border-left: 1px solid #22303A; }
+.viewer .kicker { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--viewer-muted); }
+.viewer h2 { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 40px; line-height: 1; text-wrap: balance; }
+.viewer .desc { margin: 0; white-space: pre-line; color: #C5D1D5; max-width: 60ch; }
+.viewer .ll { font-family: var(--font-mono); font-size: 12px; color: var(--viewer-muted); font-variant-numeric: tabular-nums; }
+.player { margin-top: 6px; padding: 14px; border: 1px solid #2A3944; border-radius: 8px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px 12px; align-items: center; }
+.play { width: 44px; height: 44px; border-radius: 50%; border: 0; background: #E866B2; color: #12191C; display: grid; place-items: center; cursor: pointer; }
+.play svg { width: 18px; height: 18px; }
+.player .track { min-width: 0; }
+.player .track b { display: block; font-family: var(--font-display); font-weight: 600; font-size: 17px; line-height: 1.15; }
+.player .track span { font-family: var(--font-mono); font-size: 11px; color: var(--viewer-muted); }
+.player label { grid-column: 1 / -1; display: flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 11px; color: var(--viewer-muted); }
+.player input[type=range] { flex: 1; accent-color: #E866B2; min-width: 0; }
+.eq { display: inline-flex; gap: 2px; align-items: flex-end; height: 12px; margin-left: 6px; vertical-align: -1px; }
+.eq i { width: 3px; background: #E866B2; height: 4px; }
+.is-playing .eq i { animation: eq .9s ease-in-out infinite alternate; }
+.is-playing .eq i:nth-child(2) { animation-delay: -.3s; } .is-playing .eq i:nth-child(3) { animation-delay: -.6s; }
+@keyframes eq { from { height: 3px; } to { height: 12px; } }
+.vnav { margin-top: auto; display: flex; gap: 8px; flex-wrap: wrap; }
+.vbtn { border: 1px solid #2E3D48; background: transparent; color: var(--viewer-fg); border-radius: 6px; padding: 8px 12px; cursor: pointer; font-weight: 500; }
+.vbtn:hover { background: #1B262D; }
+.close { position: absolute; top: calc(12px + env(safe-area-inset-top, 0px)); left: 12px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; border: 0;
+  background: rgba(14, 21, 24, .7); color: #fff; cursor: pointer; display: grid; place-items: center; font-size: 22px; }
+.close:hover { background: rgba(14, 21, 24, .9); }
+
+@media (max-width: 760px) {
+  .app { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr) auto; }
+  .head { padding: 10px 16px; }
+  .head h1 { font-size: 22px; }
+  .chart { grid-row: 2; }
+  .index { grid-row: 3; border-right: 0; border-top: 1px solid var(--rule); max-height: 34vh; }
+  .index h2 { margin-inline: 16px; }
+  .loc { padding: 10px 16px; }
+  .viewer { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 52%) minmax(0, 1fr); }
+  .viewer aside { border-left: 0; border-top: 1px solid #22303A; padding: 18px 16px calc(18px + env(safe-area-inset-bottom, 0px)); }
+  .viewer h2 { font-size: 32px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+</style>
+
+<div class="app">
+  <header class="head">
+    <h1>I visit you at the places where you watch me</h1>
+    <p>you can never forget me</p>
+  </header>
+
+  <nav class="index" aria-label="Locations">
+    <h2>Locations</h2>
+    <ol id="list"></ol>
+  </nav>
+
+  <main class="chart" id="chart" aria-label="Map of Manhattan">
+    <svg id="svg" preserveAspectRatio="none" aria-hidden="true">
+      <g id="g-grat-water"></g>
+      <g id="g-land"></g>
+      <g id="g-grat-land"></g>
+    </svg>
+    <div class="layer" id="labels"></div>
+    <div class="layer" id="pins"></div>
+    <div class="readout">
+      <div class="scalebar" id="scalebar"><span id="scale-txt">1 mi</span><div class="bar" id="scale-bar"></div></div>
+      <div class="cursor" id="cursor"></div>
+    </div>
+    <div class="tools">
+      <button id="zin" aria-label="Zoom in">+</button>
+      <button id="zout" aria-label="Zoom out">&minus;</button>
+      <button id="zfit" aria-label="Show all locations"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1.5 5.5v-4h4M14.5 5.5v-4h-4M1.5 10.5v4h4M14.5 10.5v4h-4"/></svg></button>
+    </div>
+    <div class="card" id="card" hidden role="tooltip"></div>
+  </main>
+</div>
+
+<div class="viewer" id="viewer" hidden role="dialog" aria-modal="true" aria-labelledby="v-title">
+  <div class="photo" id="v-photo">
+    <button class="close" id="v-close" aria-label="Close">&times;</button>
+  </div>
+  <aside>
+    <div class="kicker" id="v-kicker"></div>
+    <h2 id="v-title"></h2>
+    <div class="ll" id="v-ll"></div>
+    <p class="desc" id="v-desc"></p>
+    <div class="player" id="player">
+      <button class="play" id="v-play" aria-label="Play music"></button>
+      <div class="track"><b id="v-track"></b><span id="v-track-meta"></span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></div>
+      <label for="v-vol">VOL <input type="range" id="v-vol" min="0" max="100" value="70"></label>
+    </div>
+    <div class="vnav">
+      <button class="vbtn" id="v-prev">&larr; Previous</button>
+      <button class="vbtn" id="v-next">Next &rarr;</button>
+    </div>
+  </aside>
+</div>
+
+<script>
+/* ============================================================
+   DATA — GeoJSON. To use real content, set properties.photo,
+   properties.thumb and properties.audio to file URLs. When they
+   are null, the page draws a placeholder photo and plays a
+   generated placeholder track.
+   ============================================================ */
+const POINTS = {
+  type: "FeatureCollection",
+  features: [
+    { type: "Feature", geometry: { type: "Point", coordinates: [-73.9722, 40.7937] },
+      properties: { id: "broadway-96th", title: "Broadway & 96th", borough: "Upper West Side",
+        description: "I am a flesh recorder. I visit you at the places where you watch me.\nThere are faults in my flesh so I will forget you.\nYou can never forget me.",
+        photo: "photo.jpg", thumb: "photo.jpg", audio: "96streetsounds.mp3",
+        scene: { kind: "towers", time: "night" },
+        music: { name: "Express Stop", root: 59, mode: "minor", bpm: 90, prog: [0, 5, 3, 4] } } },
+    { type: "Feature", geometry: { type: "Point", coordinates: [-73.9641, 40.7912] },
+      properties: { id: "cpw-96th", title: "Central Park West & 96th", borough: "Upper West Side",
+        description: "I am a flesh recorder. I visit you at the places where you watch me.\nThere are faults in my flesh so I will forget you.\nYou can never forget me.",
+        photo: "photo.jpg", thumb: "photo.jpg", audio: "96streetsounds.mp3",
+        scene: { kind: "park", time: "dusk" },
+        music: { name: "Park Entrance", root: 64, mode: "major", bpm: 78, prog: [0, 4, 3, 4] } } },
+    { type: "Feature", geometry: { type: "Point", coordinates: [-73.9779, 40.7977] },
+      properties: { id: "hhp-96th", title: "Henry Hudson Pkwy at 96th", borough: "Upper West Side",
+        description: "I am a flesh recorder. I visit you at the places where you watch me.\nThere are faults in my flesh so I will forget you.\nYou can never forget me.",
+        photo: "photo.jpg", thumb: "photo.jpg", audio: "96streetsounds.mp3",
+        scene: { kind: "harbor", time: "dusk" },
+        music: { name: "River Drive", root: 57, mode: "dorian", bpm: 86, prog: [0, 3, 5, 4] } } },
+    { type: "Feature", geometry: { type: "Point", coordinates: [-73.9617, 40.7941] },
+      properties: { id: "cpw-100th", title: "Central Park West & 100th", borough: "Upper West Side",
+        description: "I am a flesh recorder. I visit you at the places where you watch me.\nThere are faults in my flesh so I will forget you.\nYou can never forget me.",
+        photo: "photo.jpg", thumb: "photo.jpg", audio: "96streetsounds.mp3",
+        scene: { kind: "park", time: "morning" },
+        music: { name: "The Pool", root: 65, mode: "major", bpm: 70, prog: [0, 5, 3, 4] } } },
+    { type: "Feature", geometry: { type: "Point", coordinates: [-73.9689, 40.7853] },
+      properties: { id: "cpw-86th", title: "Central Park West & 86th", borough: "Upper West Side",
+        description: "I am a flesh recorder. I visit you at the places where you watch me.\nThere are faults in my flesh so I will forget you.\nYou can never forget me.",
+        photo: "photo.jpg", thumb: "photo.jpg", audio: "96streetsounds.mp3",
+        scene: { kind: "park", time: "day" },
+        music: { name: "Reservoir Loop", root: 62, mode: "major", bpm: 80, prog: [0, 3, 4, 5] } } }
+  ]
+};
+
+/* ============================================================
+   MAP GEOMETRY — simplified, hand-drawn outlines ([lng, lat]).
+   ============================================================ */
+const NYC = {
+  manhattan: [[-74.0164,40.7003],[-74.0190,40.7065],[-74.0185,40.7140],[-74.0160,40.7180],[-74.0135,40.7270],[-74.0125,40.7350],[-74.0110,40.7440],[-74.0105,40.7530],[-74.0050,40.7600],[-73.9990,40.7680],[-73.9935,40.7740],[-73.9880,40.7810],[-73.9840,40.7880],[-73.9795,40.7960],[-73.9740,40.8040],[-73.9660,40.8150],[-73.9590,40.8240],[-73.9520,40.8340],[-73.9470,40.8420],[-73.9410,40.8510],[-73.9350,40.8600],[-73.9300,40.8680],[-73.9270,40.8740],[-73.9230,40.8780],[-73.9180,40.8770],[-73.9105,40.8735],[-73.9140,40.8680],[-73.9200,40.8600],[-73.9260,40.8520],[-73.9300,40.8440],[-73.9340,40.8340],[-73.9350,40.8200],[-73.9345,40.8100],[-73.9330,40.8040],[-73.9285,40.8010],[-73.9300,40.7960],[-73.9380,40.7860],[-73.9430,40.7780],[-73.9490,40.7700],[-73.9580,40.7590],[-73.9640,40.7530],[-73.9690,40.7470],[-73.9720,40.7400],[-73.9740,40.7330],[-73.9720,40.7270],[-73.9740,40.7190],[-73.9770,40.7110],[-73.9900,40.7080],[-74.0000,40.7060],[-74.0080,40.7030],[-74.0120,40.7010]],
+  roosevelt: [[-73.9590,40.7615],[-73.9475,40.7745],[-73.9455,40.7735],[-73.9570,40.7600]],
+  randalls: [[-73.9295,40.7945],[-73.9175,40.7965],[-73.9140,40.7855],[-73.9255,40.7820]],
+  governors: [[-74.0235,40.6935],[-74.0130,40.6925],[-74.0150,40.6865],[-74.0230,40.6880]]
+};
+const PARKS = {
+  centralPark: [[-73.9812,40.7681],[-73.9730,40.7644],[-73.9496,40.7969],[-73.9581,40.8006]]
+};
+const OTHER = {
+  newJersey: [[-74.40,41.00],[-73.8950,41.00],[-73.9050,40.9600],[-73.9200,40.9150],[-73.9400,40.8750],[-73.9600,40.8500],[-73.9800,40.8200],[-74.0000,40.7900],[-74.0150,40.7600],[-74.0300,40.7300],[-74.0350,40.7100],[-74.0450,40.6900],[-74.0700,40.6700],[-74.0800,40.6500],[-74.40,40.60]],
+  bronx: [[-73.9200,40.8810],[-73.9110,40.9150],[-73.8600,40.9050],[-73.8380,40.8950],[-73.7860,40.8820],[-73.7900,40.8100],[-73.8700,40.8000],[-73.9150,40.8000],[-73.9250,40.8040],[-73.9300,40.8100],[-73.9300,40.8250],[-73.9270,40.8380],[-73.9220,40.8480],[-73.9160,40.8570],[-73.9100,40.8650],[-73.9050,40.8730]],
+  queens: [[-73.9620,40.7390],[-73.9450,40.7650],[-73.9350,40.7760],[-73.9200,40.7830],[-73.9050,40.7800],[-73.8700,40.7720],[-73.8000,40.7900],[-73.8000,40.6700],[-73.8700,40.6900],[-73.8950,40.6900],[-73.9050,40.7000],[-73.9200,40.7100],[-73.9350,40.7220]],
+  brooklyn: [[-73.9620,40.7390],[-73.9650,40.7180],[-73.9800,40.7050],[-73.9990,40.7000],[-74.0050,40.6800],[-74.0250,40.6600],[-74.0420,40.6300],[-74.0400,40.6000],[-73.8000,40.6000],[-73.8000,40.6700],[-73.8700,40.6900],[-73.8950,40.6900],[-73.9050,40.7000],[-73.9200,40.7100],[-73.9350,40.7220]]
+};
+const LABELS = [
+  { t: "Central Park", c: [-73.9655, 40.7825], k: "park", r: -61 },
+  { t: "New Jersey", c: [-74.0450, 40.7800], k: "other" },
+  { t: "The Bronx", c: [-73.8950, 40.8600], k: "other" },
+  { t: "Queens", c: [-73.9050, 40.7450], k: "other" },
+  { t: "Brooklyn", c: [-73.9750, 40.6880], k: "other" },
+  { t: "Hudson River", c: [-73.9930, 40.7900], k: "water", r: -60 },
+  { t: "East River", c: [-73.9650, 40.7440], k: "water", r: -58 },
+  { t: "Harlem River", c: [-73.9255, 40.8440], k: "water", r: -66 },
+  { t: "Upper Bay", c: [-74.0330, 40.6880], k: "water" }
+];
+
+/* ============================================================
+   PROJECTION — equirectangular, corrected for NYC's latitude.
+   1 unit = 1/1000 degree of latitude (about 111 m).
+   ============================================================ */
+const COS = Math.cos(40.73 * Math.PI / 180);
+const BOUNDS = { w: -74.09, e: -73.86, s: 40.68, n: 40.90 };
+const px = lng => (lng - BOUNDS.w) * COS * 1000;
+const py = lat => (BOUNDS.n - lat) * 1000;
+const unx = x => x / (COS * 1000) + BOUNDS.w;
+const uny = y => BOUNDS.n - y / 1000;
+const FULL = { w: px(BOUNDS.e), h: py(BOUNDS.s) };
+const UNITS_PER_MILE = 1000 / 69.05;
+
+const $ = id => document.getElementById(id);
+const chart = $("chart"), svg = $("svg"), card = $("card");
+const SVGNS = "http://www.w3.org/2000/svg";
+const feats = POINTS.features;
+
+function pathFor(ring) {
+  return "M" + ring.map(([lng, lat]) => px(lng).toFixed(2) + "," + py(lat).toFixed(2)).join("L") + "Z";
+}
+function addPath(parent, d, cls) {
+  const p = document.createElementNS(SVGNS, "path");
+  p.setAttribute("d", d); p.setAttribute("class", cls); parent.appendChild(p); return p;
+}
+
+// Land
+const gLand = $("g-land");
+Object.values(OTHER).forEach(r => addPath(gLand, pathFor(r), "land-other"));
+Object.values(NYC).forEach(r => addPath(gLand, pathFor(r), "land-nyc"));
+Object.values(PARKS).forEach(r => addPath(gLand, pathFor(r), "park"));
+
+// Water graticule + soft depth contours, land graticule dashed
+const gGW = $("g-grat-water"), gGL = $("g-grat-land");
+const pad = 300;
+for (let k = 0; k <= 15; k++) {
+  const y = py(40.64 + k * 0.02);
+  addPath(gGW, `M${-pad},${y}H${FULL.w + pad}`, "grat");
+}
+for (let k = 0; k <= 18; k++) {
+  const x = px(-74.14 + k * 0.02);
+  addPath(gGW, `M${x},${-pad}V${FULL.h + pad}`, "grat");
+}
+// Depth contours: offset copies of shorelines, drawn under the land
+[3, 7].forEach(off => {
+  const g = document.createElementNS(SVGNS, "g");
+  g.setAttribute("opacity", off === 3 ? .9 : .5);
+  [...Object.values(NYC), ...Object.values(OTHER)].forEach(r => {
+    const p = addPath(g, pathFor(r), "contour");
+    p.setAttribute("stroke-width", off * 2.2);
+    p.setAttribute("stroke-opacity", .35);
+  });
+  gGW.appendChild(g);
+});
+
+// HTML labels
+const labelsEl = $("labels");
+const labelEls = LABELS.map(L => {
+  const el = document.createElement("div");
+  el.className = "lbl lbl-" + L.k;
+  el.textContent = L.t;
+  el.style.transform = `translate(-50%,-50%)` + (L.r ? ` rotate(${L.r}deg)` : "");
+  labelsEl.appendChild(el);
+  return { el, x: px(L.c[0]), y: py(L.c[1]) };
+});
+const ticks = [];
+for (let k = 0; k <= 9; k++) { const lat = 40.70 + k * 0.02; const el = document.createElement("div"); el.className = "edge-tick"; el.textContent = lat.toFixed(2) + "°N"; labelsEl.appendChild(el); ticks.push({ el, axis: "y", v: py(lat) }); }
+for (let k = 0; k <= 11; k++) { const lng = -74.08 + k * 0.02; const el = document.createElement("div"); el.className = "edge-tick"; el.textContent = Math.abs(lng).toFixed(2) + "°W"; labelsEl.appendChild(el); ticks.push({ el, axis: "x", v: px(lng) }); }
+
+// Pins + index
+const pinsEl = $("pins"), listEl = $("list");
+const fmtLL = ([lng, lat]) => `${lat.toFixed(4)}° N  ${Math.abs(lng).toFixed(4)}° W`;
+const pins = feats.map((f, i) => {
+  const p = f.properties;
+  const b = document.createElement("button");
+  b.className = "pin"; b.type = "button";
+  b.setAttribute("aria-label", `${p.title}, ${p.borough}. Open photo and music.`);
+  b.innerHTML = `<span>${i + 1}</span>`;
+  pinsEl.appendChild(b);
+
+  const li = document.createElement("li");
+  li.innerHTML = `<button class="loc" type="button"><span class="num">${i + 1}</span><span class="name"></span><span class="boro"></span><span class="ll"></span></button>`;
+  li.querySelector(".name").textContent = p.title;
+  li.querySelector(".boro").textContent = p.borough;
+  li.querySelector(".ll").textContent = fmtLL(f.geometry.coordinates);
+  listEl.appendChild(li);
+  const row = li.firstElementChild;
+
+  return { b, row, i, x: px(f.geometry.coordinates[0]), y: py(f.geometry.coordinates[1]) };
+});
+
+/* ============================================================
+   VIEW STATE — center (cx, cy) in map units, units-per-pixel.
+   ============================================================ */
+const view = { cx: FULL.w / 2, cy: FULL.h / 2, upp: 1, fitUpp: 1, W: 0, H: 0 };
+
+function fitAll() {
+  const xs = NYC.manhattan.map(c => px(c[0])), ys = NYC.manhattan.map(c => py(c[1]));
+  const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
+  const m = 28;
+  view.cx = (minX + maxX) / 2; view.cy = (minY + maxY) / 2;
+  view.upp = Math.max((maxX - minX) / Math.max(view.W - m * 2, 50), (maxY - minY) / Math.max(view.H - m * 2, 50));
+  view.fitUpp = Math.max(FULL.w / view.W, FULL.h / view.H);
+  clampView(); render();
+}
+function clampView() {
+  view.upp = Math.min(Math.max(view.upp, view.fitUpp * 0.08), view.fitUpp * 1.1);
+  const hw = view.W * view.upp / 2, hh = view.H * view.upp / 2;
+  view.cx = hw * 2 >= FULL.w ? FULL.w / 2 : Math.min(Math.max(view.cx, hw), FULL.w - hw);
+  view.cy = hh * 2 >= FULL.h ? FULL.h / 2 : Math.min(Math.max(view.cy, hh), FULL.h - hh);
+}
+const toScreen = (x, y) => [(x - view.cx) / view.upp + view.W / 2, (y - view.cy) / view.upp + view.H / 2];
+const toMap = (sx, sy) => [(sx - view.W / 2) * view.upp + view.cx, (sy - view.H / 2) * view.upp + view.cy];
+
+function render() {
+  const w = view.W * view.upp, h = view.H * view.upp;
+  svg.setAttribute("viewBox", `${view.cx - w / 2} ${view.cy - h / 2} ${w} ${h}`);
+  const zoomed = view.upp < view.fitUpp * 0.45;
+  labelEls.forEach(L => {
+    const [sx, sy] = toScreen(L.x, L.y);
+    L.el.style.left = sx + "px"; L.el.style.top = sy + "px";
+    L.el.style.fontSize = "";
+    if (zoomed && L.el.classList.contains("lbl-boro")) L.el.style.fontSize = "17px";
+  });
+  ticks.forEach(t => {
+    if (t.axis === "y") { const sy = toScreen(0, t.v)[1]; t.el.style.top = (sy - 14) + "px"; t.el.style.right = "6px"; t.el.style.left = "auto"; t.el.hidden = sy < 20 || sy > view.H - 70; }
+    else { const sx = toScreen(t.v, 0)[0]; t.el.style.left = (sx + 4) + "px"; t.el.style.top = "6px"; t.el.hidden = sx < 10 || sx > view.W - 60; }
+  });
+  pins.forEach(p => { const [sx, sy] = toScreen(p.x, p.y); p.b.style.left = sx + "px"; p.b.style.top = sy + "px"; });
+  // Scale bar: pick 0.5, 1, 2 or 5 miles to fit ~60–140 px
+  const pxPerMile = UNITS_PER_MILE / view.upp;
+  const miles = [0.25, 0.5, 1, 2, 5, 10].find(m => m * pxPerMile >= 60) || 10;
+  $("scale-bar").style.width = (miles * pxPerMile) + "px";
+  $("scale-txt").textContent = (miles < 1 ? miles.toString().replace(/^0/, "") : miles) + (miles === 1 ? " mile" : " miles");
+  if (hot !== null && !card.hidden) placeCard(hot);
+}
+
+function resize() {
+  const r = chart.getBoundingClientRect();
+  const first = view.W === 0;
+  view.W = r.width; view.H = r.height;
+  view.fitUpp = Math.max(FULL.w / view.W, FULL.h / view.H);
+  if (first) fitAll(); else { clampView(); render(); }
+}
+new ResizeObserver(resize).observe(chart);
+
+function zoomAt(factor, sx, sy) {
+  const [mx, my] = toMap(sx, sy);
+  view.upp *= factor; clampView();
+  const [nx, ny] = toMap(sx, sy);
+  view.cx += mx - nx; view.cy += my - ny; clampView(); render();
+}
+chart.addEventListener("wheel", e => {
+  e.preventDefault();
+  const r = chart.getBoundingClientRect();
+  zoomAt(Math.exp(e.deltaY * (e.deltaMode ? 0.05 : 0.0016)), e.clientX - r.left, e.clientY - r.top);
+}, { passive: false });
+$("zin").onclick = () => zoomAt(1 / 1.6, view.W / 2, view.H / 2);
+$("zout").onclick = () => zoomAt(1.6, view.W / 2, view.H / 2);
+$("zfit").onclick = fitAll;
+
+// Pan + pinch on the map background
+const ptrs = new Map(); let pinch = null;
+chart.addEventListener("pointerdown", e => {
+  if (e.target.closest(".pin, .tools, .card")) return;
+  chart.setPointerCapture(e.pointerId);
+  ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY });
+  if (ptrs.size === 2) { const [a, b] = [...ptrs.values()]; pinch = { d: Math.hypot(a.x - b.x, a.y - b.y), upp: view.upp }; }
+  if (e.pointerType !== "mouse") hideCard();
+});
+chart.addEventListener("pointermove", e => {
+  const r = chart.getBoundingClientRect();
+  if (e.pointerType === "mouse") {
+    const [mx, my] = toMap(e.clientX - r.left, e.clientY - r.top);
+    $("cursor").textContent = `${uny(my).toFixed(4)}° N  ${Math.abs(unx(mx)).toFixed(4)}° W`;
+  }
+  if (!ptrs.has(e.pointerId)) return;
+  const prev = ptrs.get(e.pointerId);
+  const cur = { x: e.clientX, y: e.clientY };
+  ptrs.set(e.pointerId, cur);
+  if (ptrs.size === 1) {
+    view.cx -= (cur.x - prev.x) * view.upp; view.cy -= (cur.y - prev.y) * view.upp;
+    chart.classList.add("is-dragging"); clampView(); render();
+  } else if (ptrs.size === 2 && pinch) {
+    const [a, b] = [...ptrs.values()];
+    const d = Math.hypot(a.x - b.x, a.y - b.y);
+    const mid = [(a.x + b.x) / 2 - r.left, (a.y + b.y) / 2 - r.top];
+    zoomAt((pinch.upp * pinch.d / d) / view.upp, mid[0], mid[1]);
+  }
+});
+const endPtr = e => { ptrs.delete(e.pointerId); if (ptrs.size < 2) pinch = null; if (!ptrs.size) chart.classList.remove("is-dragging"); };
+chart.addEventListener("pointerup", endPtr);
+chart.addEventListener("pointercancel", endPtr);
+chart.addEventListener("pointerleave", () => { $("cursor").textContent = ""; });
+
+/* ============================================================
+   PLACEHOLDER PHOTOS — drawn on canvas from each point's scene.
+   ============================================================ */
+function rng(seedStr) {
+  let h = 1779033703 ^ seedStr.length;
+  for (let i = 0; i < seedStr.length; i++) { h = Math.imul(h ^ seedStr.charCodeAt(i), 3432918353); h = h << 13 | h >>> 19; }
+  return () => { h = Math.imul(h ^ h >>> 16, 2246822507); h = Math.imul(h ^ h >>> 13, 3266489909); h ^= h >>> 16; return (h >>> 0) / 4294967296; };
+}
+const SKIES = {
+  morning: { sky: ["#F6D7B8", "#BFD6E6", "#7FA8C9"], sun: "#FFF2D6", sunY: .62, far: "#9FB3C2", mid: "#6E8698", near: "#3D5160", lit: false },
+  day:     { sky: ["#DCEBF4", "#9CC4E0", "#5D96C4"], sun: "#FFFBEA", sunY: .2, far: "#A9BAC6", mid: "#7A8E9C", near: "#46586A", lit: false },
+  dusk:    { sky: ["#F2A86F", "#C46C78", "#4A3E6B"], sun: "#FFD39A", sunY: .7, far: "#7B5C76", mid: "#4E3C58", near: "#241E33", lit: true },
+  night:   { sky: ["#2B3B5C", "#16213A", "#0A101E"], sun: "#E9ECF2", sunY: .18, far: "#27324A", mid: "#1A2238", near: "#0C1120", lit: true }
+};
+function drawScene(canvas, props, W, H) {
+  const ctx = canvas.getContext("2d");
+  const R = rng(props.id);
+  const S = SKIES[props.scene.time];
+  const kind = props.scene.kind;
+  const g = ctx.createLinearGradient(0, H, 0, 0);
+  g.addColorStop(0, S.sky[0]); g.addColorStop(.45, S.sky[1]); g.addColorStop(1, S.sky[2]);
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  if (props.scene.time === "night") { ctx.fillStyle = "rgba(255,255,255,.7)"; for (let i = 0; i < 90; i++) ctx.fillRect(R() * W, R() * H * .55, 1.2, 1.2); }
+  // Sun or moon
+  const sx = W * (.2 + R() * .6), sy = H * S.sunY, sr = Math.min(W, H) * (props.scene.time === "night" ? .04 : .07);
+  const halo = ctx.createRadialGradient(sx, sy, 0, sx, sy, sr * 6);
+  halo.addColorStop(0, S.sun + "AA"); halo.addColorStop(1, S.sun + "00");
+  ctx.fillStyle = halo; ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = S.sun; ctx.beginPath(); ctx.arc(sx, sy, sr, 0, Math.PI * 2); ctx.fill();
+
+  const base = H * .86;
+  const layer = (color, minH, maxH, minW, maxW, gap, windows, roofs) => {
+    let x = -10;
+    while (x < W + 10) {
+      const bw = W * (minW + R() * (maxW - minW)), bh = H * (minH + R() * (maxH - minH));
+      ctx.fillStyle = color;
+      ctx.fillRect(x, base - bh, bw, bh + H);
+      if (roofs === "gable") { ctx.beginPath(); ctx.moveTo(x - 2, base - bh); ctx.lineTo(x + bw / 2, base - bh - bw * .35); ctx.lineTo(x + bw + 2, base - bh); ctx.fill(); }
+      if (roofs === "tank" && R() < .4) { ctx.fillRect(x + bw * .3, base - bh - H * .03, bw * .18, H * .03); }
+      if (windows) {
+        const ww = Math.max(2, W * .006), wh = Math.max(3, H * .012), sxp = ww * 2.4, syp = wh * 2.1;
+        for (let wy = base - bh + syp; wy < base - wh; wy += syp)
+          for (let wx = x + sxp * .6; wx < x + bw - ww - 1; wx += sxp) {
+            const on = S.lit ? R() < .38 : R() < .9;
+            ctx.fillStyle = S.lit ? (on ? "rgba(255,214,140,.85)" : "rgba(0,0,0,.18)") : "rgba(255,255,255,.16)";
+            if (on || S.lit) ctx.fillRect(wx, wy, ww, wh);
+          }
+      }
+      x += bw + W * gap * R();
+    }
+  };
+  const trees = (color, y, count, size) => {
+    ctx.fillStyle = color;
+    for (let i = 0; i < count; i++) {
+      const tx = R() * W, r = H * size * (.6 + R() * .7);
+      ctx.beginPath(); ctx.arc(tx, y - r * .4, r, 0, Math.PI * 2); ctx.arc(tx + r * .7, y - r * .1, r * .8, 0, Math.PI * 2); ctx.fill();
+    }
+  };
+  if (kind === "towers") {
+    layer(S.far, .25, .55, .04, .09, .01, false);
+    layer(S.mid, .18, .42, .06, .12, .015, true, "tank");
+    layer(S.near, .1, .26, .08, .16, .0, true, "tank");
+  } else if (kind === "park") {
+    layer(S.far, .3, .6, .04, .08, .01, false);
+    layer(S.mid, .2, .4, .06, .1, .03, true, "tank");
+    trees(S.near, H * .82, 26, .06);
+    trees(S.near, H * .97, 12, .09);
+  } else if (kind === "harbor") {
+    // Open water to the horizon, a low far shore and a ferry
+    const hz = H * .62;
+    ctx.fillStyle = S.far; ctx.fillRect(0, hz - H * .025, W, H * .03);
+    ctx.fillRect(W * .7, hz - H * .09, W * .012, H * .07);
+    const wg = ctx.createLinearGradient(0, hz, 0, H);
+    wg.addColorStop(0, S.mid); wg.addColorStop(1, S.near);
+    ctx.fillStyle = wg; ctx.fillRect(0, hz, W, H - hz);
+    ctx.fillStyle = "rgba(255,255,255,.18)";
+    for (let i = 0; i < 70; i++) { const y = hz + Math.pow(R(), 1.6) * (H - hz); ctx.fillRect(R() * W, y, W * (.01 + R() * .04) * (y / H), Math.max(1, H * .002)); }
+    const fx = W * (.15 + R() * .3), fy = hz + H * .06, fw = W * .14;
+    ctx.fillStyle = S.near; ctx.fillRect(fx, fy - H * .03, fw, H * .03); ctx.fillRect(fx + fw * .2, fy - H * .055, fw * .55, H * .025);
+    ctx.fillStyle = "rgba(255,190,90,.9)"; ctx.fillRect(fx, fy - H * .012, fw, Math.max(1, H * .005));
+    // Railing in the foreground
+    ctx.fillStyle = S.near; ctx.fillRect(0, H * .88, W, H * .12);
+    ctx.fillRect(0, H * .8, W, H * .008);
+    for (let x = 0; x < W; x += W * .05) ctx.fillRect(x, H * .8, Math.max(2, W * .004), H * .08);
+    const fs2 = Math.max(9, Math.round(W * .016));
+    ctx.font = `500 ${fs2}px "IBM Plex Mono", monospace`; ctx.fillStyle = "rgba(255,255,255,.75)"; ctx.textBaseline = "bottom";
+    ctx.fillText("PLACEHOLDER PHOTO", fs2 * 1.2, H - fs2 * .9);
+    return;
+  } else if (kind === "hills") {
+    ctx.fillStyle = S.far; ctx.beginPath(); ctx.moveTo(0, H * .55);
+    for (let x = 0; x <= W; x += W / 20) ctx.lineTo(x, H * (.5 + Math.sin(x / W * 3 + R()) * .04)); ctx.lineTo(W, H); ctx.lineTo(0, H); ctx.fill();
+    trees(S.mid, H * .68, 40, .05);
+    layer(S.mid, .08, .2, .05, .09, .25, true, "gable");
+    trees(S.near, H * .9, 28, .07);
+  } else if (kind === "rowhouses") {
+    layer(S.far, .2, .4, .05, .1, .02, false);
+    layer(S.mid, .14, .2, .07, .1, 0, true);
+    trees(S.near, H * .95, 9, .08);
+    layer(S.near, .05, .09, .1, .14, .3, false);
+  } else {
+    trees(S.mid, H * .78, 34, .035);
+    layer(S.mid, .07, .12, .1, .15, .35, true, "gable");
+    trees(S.near, H * .93, 18, .055);
+  }
+  // Street
+  ctx.fillStyle = S.near; ctx.fillRect(0, base, W, H - base);
+  ctx.fillStyle = "rgba(255,255,255,.08)"; ctx.fillRect(0, base + (H - base) * .45, W, Math.max(1, H * .004));
+  // Placeholder stamp
+  const fs = Math.max(9, Math.round(W * .016));
+  ctx.font = `500 ${fs}px "IBM Plex Mono", monospace`;
+  ctx.fillStyle = "rgba(255,255,255,.75)"; ctx.textBaseline = "bottom";
+  ctx.fillText("PLACEHOLDER PHOTO", fs * 1.2, H - fs * .9);
+}
+const thumbs = {};
+function makeThumb(p) {
+  if (p.thumb || p.photo) return p.thumb || p.photo;
+  if (!thumbs[p.id]) { const c = document.createElement("canvas"); c.width = 480; c.height = 300; drawScene(c, p, 480, 300); thumbs[p.id] = c.toDataURL("image/jpeg", .85); }
+  return thumbs[p.id];
+}
+
+/* ============================================================
+   HOVER CARD
+   ============================================================ */
+let hot = null, hideTimer = null, lastPointer = "mouse";
+function setHot(i) {
+  pins.forEach((p, j) => { p.b.classList.toggle("is-hot", j === i); p.row.classList.toggle("is-hot", j === i); });
+}
+function showCard(i) {
+  clearTimeout(hideTimer);
+  const p = feats[i].properties;
+  if (hot !== i || card.hidden) {
+    card.innerHTML = `<img alt=""><div class="body"><h3></h3><p></p><button class="go" type="button">Here I am</button></div>`;
+    card.querySelector("img").src = makeThumb(p);
+    card.querySelector("img").alt = `Photo of ${p.title}`;
+    card.querySelector("h3").textContent = p.title;
+    card.querySelector("p").textContent = p.description;
+    card.querySelector(".go").onclick = () => openViewer(i, true);
+  }
+  hot = i; setHot(i);
+  card.hidden = false; placeCard(i);
+  requestAnimationFrame(() => card.classList.add("is-on"));
+}
+function placeCard(i) {
+  const [sx, sy] = toScreen(pins[i].x, pins[i].y);
+  const cw = card.offsetWidth, ch = card.offsetHeight, m = 12;
+  let left = Math.min(Math.max(sx - cw / 2, m), view.W - cw - m);
+  let top = sy - ch - 22;
+  if (top < m) top = sy + 22;
+  if (top + ch > view.H - m) top = Math.max(m, view.H - ch - m);
+  card.style.left = left + "px"; card.style.top = top + "px";
+}
+function hideCard(delay = 0) {
+  clearTimeout(hideTimer);
+  hideTimer = setTimeout(() => { card.classList.remove("is-on"); card.hidden = true; hot = null; setHot(-1); }, delay);
+}
+card.addEventListener("pointerenter", () => clearTimeout(hideTimer));
+card.addEventListener("pointerleave", e => { if (e.pointerType === "mouse") hideCard(160); });
+
+pins.forEach((p, i) => {
+  p.b.addEventListener("pointerdown", e => { lastPointer = e.pointerType; });
+  p.b.addEventListener("pointerenter", e => { if (e.pointerType === "mouse") { lastPointer = "mouse"; showCard(i); } });
+  p.b.addEventListener("pointerleave", e => { if (e.pointerType === "mouse") hideCard(160); });
+  p.b.addEventListener("focus", () => showCard(i));
+  p.b.addEventListener("blur", () => hideCard(160));
+  p.b.addEventListener("click", () => {
+    // Touch: first tap previews, second tap opens. Mouse and keyboard open right away.
+    if (lastPointer === "touch" || lastPointer === "pen") {
+      if (hot === i && !card.hidden) openViewer(i, true); else showCard(i);
+    } else openViewer(i, true);
+    lastPointer = "mouse";
+  });
+  p.row.addEventListener("pointerenter", e => { if (e.pointerType === "mouse") { lastPointer = "mouse"; showCard(i); } });
+  p.row.addEventListener("pointerleave", e => { if (e.pointerType === "mouse") hideCard(160); });
+  p.row.addEventListener("click", () => openViewer(i, true));
+});
+
+/* ============================================================
+   MUSIC — plays the file in properties.audio when set,
+   otherwise a generated placeholder track (Web Audio).
+   ============================================================ */
+const MODES = { major: [0, 2, 4, 5, 7, 9, 11], minor: [0, 2, 3, 5, 7, 8, 10], dorian: [0, 2, 3, 5, 7, 9, 10] };
+const midiHz = m => 440 * Math.pow(2, (m - 69) / 12);
+const Music = {
+  ctx: null, out: null, bus: null, timer: null, el: null, playing: false, current: null, vol: .7,
+  ensure() {
+    if (this.ctx) return;
+    const AC = window.AudioContext || window.webkitAudioContext;
+    this.ctx = new AC();
+    this.out = this.ctx.createGain(); this.out.gain.value = this.vol; this.out.connect(this.ctx.destination);
+    // Simple echo for space
+    const d = this.ctx.createDelay(1), fb = this.ctx.createGain(), wet = this.ctx.createGain();
+    d.delayTime.value = .33; fb.gain.value = .32; wet.gain.value = .25;
+    d.connect(fb); fb.connect(d); d.connect(wet); wet.connect(this.out);
+    this.send = d;
+  },
+  play(props) {
+    this.stop(true);
+    this.current = props;
+    if (props.audio) {
+      this.el = new Audio(props.audio); this.el.loop = true; this.el.volume = 0;
+      this.el.play().then(() => this.fadeEl(this.vol, 1200)).catch(() => { this.playing = false; syncPlayer(); });
+      this.playing = true; syncPlayer(); return;
+    }
+    this.ensure(); this.ctx.resume();
+    const c = this.ctx, bus = c.createGain();
+    bus.gain.setValueAtTime(0, c.currentTime); bus.gain.linearRampToValueAtTime(1, c.currentTime + 1.2);
+    bus.connect(this.out); bus.connect(this.send);
+    this.bus = bus;
+    const m = props.music, scale = MODES[m.mode], R = rng(props.id + "♪");
+    const pattern = Array.from({ length: 16 }, (_, k) => (k % 2 === 0 || R() < .35) ? Math.floor(R() * 5) : null);
+    const step16 = 60 / m.bpm / 4;
+    let step = 0, t = c.currentTime + .08;
+    const note = (deg, oct) => { const n = scale.length; const o = Math.floor(deg / n); return m.root + 12 * (oct + o) + scale[((deg % n) + n) % n]; };
+    const voice = (freq, start, dur, type, gain, cutoff) => {
+      const o = c.createOscillator(), g = c.createGain(), f = c.createBiquadFilter();
+      o.type = type; o.frequency.value = freq; f.type = "lowpass"; f.frequency.value = cutoff;
+      g.gain.setValueAtTime(0, start); g.gain.linearRampToValueAtTime(gain, start + Math.min(.03, dur * .2));
+      g.gain.exponentialRampToValueAtTime(.0001, start + dur);
+      o.connect(f); f.connect(g); g.connect(bus); o.start(start); o.stop(start + dur + .05);
+    };
+    const tick = () => {
+      while (t < c.currentTime + .15) {
+        const bar = Math.floor(step / 16), chordDeg = m.prog[bar % m.prog.length], s = step % 16;
+        if (s === 0) {
+          const dur = step16 * 16 + .4;
+          [0, 2, 4].forEach((k, j) => { voice(midiHz(note(chordDeg + k, -1)), t, dur, "triangle", .05, 900); voice(midiHz(note(chordDeg + k, -1)) * 1.004, t, dur, "sine", .035, 1200); });
+          voice(midiHz(note(chordDeg, -2)), t, step16 * 8, "sine", .12, 400);
+        }
+        if (s === 8) voice(midiHz(note(chordDeg, -2)), t, step16 * 8, "sine", .09, 400);
+        const p = pattern[s];
+        if (p !== null && !(bar % 4 === 3 && s > 11)) voice(midiHz(note(chordDeg + [0, 2, 4, 7, 9][p], 0)), t, step16 * 2.6, "triangle", .07, 2600);
+        step++; t += step16;
+      }
+    };
+    tick(); this.timer = setInterval(tick, 40);
+    this.playing = true; syncPlayer();
+  },
+  fadeEl(target, ms) {
+    const el = this.el; if (!el) return;
+    const from = el.volume, t0 = performance.now();
+    const f = now => { const k = Math.min(1, (now - t0) / ms); el.volume = from + (target - from) * k; if (k < 1) requestAnimationFrame(f); };
+    requestAnimationFrame(f);
+  },
+  stop(immediate) {
+    clearInterval(this.timer); this.timer = null;
+    if (this.bus) {
+      const b = this.bus, c = this.ctx; this.bus = null;
+      b.gain.cancelScheduledValues(c.currentTime); b.gain.setValueAtTime(b.gain.value, c.currentTime);
+      b.gain.linearRampToValueAtTime(0, c.currentTime + (immediate ? .15 : .45));
+      setTimeout(() => b.disconnect(), 700);
+    }
+    if (this.el) { const el = this.el; this.el = null; el.pause(); }
+    this.playing = false; syncPlayer();
+  },
+  toggle() { if (this.playing) this.stop(); else if (this.current) this.play(this.current); },
+  setVol(v) { this.vol = v; if (this.out) this.out.gain.setTargetAtTime(v, this.ctx.currentTime, .05); if (this.el) this.el.volume = v; }
+};
+const ICON_PLAY = '<svg viewBox="0 0 18 18" fill="currentColor"><path d="M4 2.5v13l11-6.5z"/></svg>';
+const ICON_PAUSE = '<svg viewBox="0 0 18 18" fill="currentColor"><path d="M4 2.5h3.5v13H4zM10.5 2.5H14v13h-3.5z"/></svg>';
+function syncPlayer() {
+  $("v-play").innerHTML = Music.playing ? ICON_PAUSE : ICON_PLAY;
+  $("v-play").setAttribute("aria-label", Music.playing ? "Pause music" : "Play music");
+  $("player").classList.toggle("is-playing", Music.playing);
+}
+$("v-play").onclick = () => Music.toggle();
+$("v-vol").oninput = e => Music.setVol(e.target.value / 100);
+
+/* ============================================================
+   FULL VIEWER — deep-linkable by #id; Back closes it.
+   ============================================================ */
+const viewer = $("viewer");
+let openIdx = null, pushed = false, lastFocus = null;
+function drawFull() {
+  if (openIdx === null) return;
+  const p = feats[openIdx].properties, box = $("v-photo");
+  box.querySelectorAll("canvas, img").forEach(n => n.remove());
+  if (p.photo) {
+    const img = new Image(); img.src = p.photo; img.alt = `Photo of ${p.title}`; box.prepend(img); return;
+  }
+  const r = box.getBoundingClientRect(), dpr = Math.min(2, window.devicePixelRatio || 1);
+  const c = document.createElement("canvas");
+  c.width = Math.round(r.width * dpr); c.height = Math.round(r.height * dpr);
+  c.setAttribute("role", "img"); c.setAttribute("aria-label", `Placeholder photo of ${p.title}`);
+  drawScene(c, p, c.width, c.height); box.prepend(c);
+}
+function openViewer(i, withSound) {
+  const p = feats[i].properties;
+  const was = openIdx;
+  openIdx = i; hideCard();
+  if (was === null) lastFocus = document.activeElement;
+  $("v-kicker").textContent = `${String(i + 1).padStart(2, "0")} / ${String(feats.length).padStart(2, "0")} · ${p.borough}`;
+  $("v-title").textContent = p.title;
+  $("v-ll").textContent = fmtLL(feats[i].geometry.coordinates);
+  $("v-desc").textContent = p.description;
+  $("v-track").textContent = p.audio ? p.title : p.music.name;
+  $("v-track-meta").textContent = p.audio ? "Audio file" : `Placeholder track · ${p.music.bpm} BPM`;
+  viewer.hidden = false;
+  requestAnimationFrame(() => { viewer.classList.add("is-on"); drawFull(); });
+  if (withSound) Music.play(p); else { Music.stop(true); Music.current = p; }
+  if (location.hash.slice(1) !== p.id) {
+    if (was === null) { history.pushState(null, "", "#" + p.id); pushed = true; }
+    else history.replaceState(null, "", "#" + p.id);
+  }
+  $("v-close").focus();
+}
+function closeViewer(fromHistory) {
+  if (openIdx === null) return;
+  Music.stop();
+  openIdx = null;
+  viewer.classList.remove("is-on");
+  setTimeout(() => { if (openIdx === null) viewer.hidden = true; }, 250);
+  if (!fromHistory) {
+    if (pushed) { pushed = false; history.back(); }
+    else history.replaceState(null, "", location.pathname + location.search);
+  }
+  if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+}
+$("v-close").onclick = () => closeViewer(false);
+$("v-prev").onclick = () => openViewer((openIdx - 1 + feats.length) % feats.length, Music.playing);
+$("v-next").onclick = () => openViewer((openIdx + 1) % feats.length, Music.playing);
+window.addEventListener("popstate", () => {
+  const id = location.hash.slice(1), i = feats.findIndex(f => f.properties.id === id);
+  if (i < 0) { pushed = false; closeViewer(true); } else if (i !== openIdx) openViewer(i, false);
+});
+document.addEventListener("keydown", e => {
+  if (openIdx === null) return;
+  if (e.key === "Escape") closeViewer(false);
+  else if (e.key === "ArrowRight") $("v-next").click();
+  else if (e.key === "ArrowLeft") $("v-prev").click();
+  else if (e.key === "Tab") {
+    const f = [...viewer.querySelectorAll("button, input")]; const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+});
+let rT; window.addEventListener("resize", () => { clearTimeout(rT); rT = setTimeout(drawFull, 120); });
+
+// Deep link on load: open the viewer; music waits for a tap (browsers require one).
+(function boot() {
+  const i = feats.findIndex(f => f.properties.id === location.hash.slice(1));
+  syncPlayer();
+  if (i >= 0) openViewer(i, false);
+  feats.forEach(f => makeThumb(f.properties));
+})();
+</script>
+
+</body></html>
