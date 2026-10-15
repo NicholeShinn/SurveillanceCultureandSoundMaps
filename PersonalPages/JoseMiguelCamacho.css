@@ -1,11 +1,6 @@
 @font-face {
     font-family: "MoMA Sans Web Bold Regular";
-    src: url("https://db.onlinewebfonts.com/t/6eda3943441dcfaa842c5c5f6c6aac56.eot");
-    src: url("https://db.onlinewebfonts.com/t/6eda3943441dcfaa842c5c5f6c6aac56.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/6eda3943441dcfaa842c5c5f6c6aac56.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/6eda3943441dcfaa842c5c5f6c6aac56.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/6eda3943441dcfaa842c5c5f6c6aac56.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/6eda3943441dcfaa842c5c5f6c6aac56.svg#MoMA Sans Web Bold Regular")format("svg");
+    src: url("https://db.onlinewebfonts.com/t/6eda3943441dcfaa842c5c5f6c6aac56.otf");
 }
 
 body{
@@ -14,7 +9,7 @@ body{
 }
 
 h3 {
-    font-family: 'MoMA Sans Web Semibold Regular';
+    font-family: 'MoMA Sans Web Bold Regular';
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 50px #ffffff, 0 0 60px #ffffff, 0 0 70px #ffffff;
     text-align: center;
 }
