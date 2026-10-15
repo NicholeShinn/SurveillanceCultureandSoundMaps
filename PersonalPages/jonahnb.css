@@ -1,0 +1,254 @@
+@font-face {
+    font-family: Redaction;
+    src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalFonts/Basteleur-Moonlight.otf") format("opentype");
+}
+
+
+body{
+    background-color: #9978ec;
+    margin: 0;
+}
+
+h3 {
+    font-family: 'epilog', Arial, sans-serif;
+    text-shadow: 0 0 10px #fff, 0 0 20px #090707, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
+    text-align: center;
+}
+
+#Title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: epilog;
+}
+
+#Paragraph1{
+    padding: 40px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Paragraph2 {
+    padding: 40px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Paragraph2:hover {
+    transform: rotate(20deg);
+    text-shadow: 0px 3px 3px black, 0 0 25px #3305FD, 1px 0 3px #A1014C, 0 0 40px #5601A1;
+    filter: blur(3px);
+    color: white;
+    transition: ease-in-out 0.2s;
+}
+
+#audio1{    
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#centeredimage {
+    filter: drop-shadow(3px 3px 6px black);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+}
+
+#pic01 {
+    filter: drop-shadow(10px 10px 10px black);
+    border-radius: 8px;
+}
+
+#pic02 {
+    filter: drop-shadow(10px 10px 10px black);
+    border-radius: 50%;
+}
+
+#pic03 {
+    filter: drop-shadow(10px 10px 10px black);
+    opacity: 0.5;
+}
+
+#pic04 {
+    filter: drop-shadow(10px 10px 10px black);
+    filter: brightness(150%);
+}
+
+#pic05 {
+    filter: drop-shadow(10px 10px 10px black);
+    filter: grayscale(60%);
+}
+
+#pic06 {
+    filter: drop-shadow(10px 10px 10px black);
+    filter: hue-rotate(200deg);
+}
+
+.subpagecontainer {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 20px;
+  row-gap: 2px;
+  padding: 5%;
+  margin: auto;
+  background-repeat: repeat;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.subpagecontainer div {
+  padding: 5px;
+  margin: auto;
+  text-align: center;
+  line-height: 1em;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes colorshift {
+    0% {
+        background-color: red;}
+    25% {
+        background-color: yellow;}
+    50% {
+        background-color: blue;}
+    75% {
+        background-color: green;}
+    100% {
+        background-color: red;}
+}
+
+#hoverpicholder {
+    padding: 40px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    animation-name: colorshift;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+#hoverpic {
+    padding: 40px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hoverpic:hover {
+    transform: scale(2.5) rotate(10deg) translate(0px, -20px);
+    filter: blur(3px);
+    transition: ease-in-out 0.5s;
+    }
+
+#animatedpic {
+    padding: 40px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    animation-name: animatedpicture;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes animatedpicture {
+    0% {
+        left: 0px;
+        top: 0px;}
+    50% {
+        left: 0px;
+        top: 200px;
+        transform: scale(0.5, 0.5);}
+    75% {
+        left: 0px;
+        top: 200px;
+        transform: scale(-1, -1);}
+    100% {
+        left: 0px;
+        top: 0px;}
+}
+
+
+#truckanimation {
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    animation-name: truckanimation;
+    animation-duration: 12s;
+    animation-iteration-count: infinite;
+}
+@keyframes truckanimation {
+  0%   {
+    left:-1000px; top:0px;}
+  10% {
+     left:-400px; top:0px;}
+  50%  {
+    left:400px; top:0px;
+    transform: scale(0.75, 0.75)}
+  75%  {
+    left:100px; top:00px;
+    transform: scale(1.25, 1.25)}
+  100%  {
+    left: 1300px; top:5px;
+  }
+}
+
+#truckanimation2 {
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    animation-name: truckanimation2;
+    animation-duration: 40s;
+    animation-iteration-count: infinite;
+}
+@keyframes truckanimation2 {
+  0%   {
+    left:1000px; top:200px;
+    transform: scale(.50, .50)}
+  100%  {
+    left: -1300px; top:200px;
+    transform: scale(.6, .6)
+  }
+}
+
+
+.group:after {
+  content: "";
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 20px;
+  margin:auto
+}
+
+.text {
+  float: right;
+  width: 30%;
+}
+
+.images {
+  float: right;
+  width: 70%;
+}
