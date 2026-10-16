@@ -1,6 +1,6 @@
 @font-face {
-    font-family: Epilog;
-    src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/fonts/epilog") format("truetype");
+    font-family: Futura;
+    src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalFonts/FuturaRenner-Regular.otf") format("opentype");
 }
 
 
@@ -10,7 +10,8 @@ body{
 }
 
 h3 {
-    font-family: Epilog;
+    font-family: 'Moonlight', Arial, sans-serif;
+
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
     text-align: center;
 }
