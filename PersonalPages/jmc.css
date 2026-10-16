@@ -12,7 +12,7 @@ body{
 h1 {
     font-family: 'MoMA Sans Web Bold Regular';
     text-align: center;
-    font-size: 50pt
+    font-size: 64pt
 }
 
 #Title{
@@ -22,7 +22,7 @@ h1 {
 }
 
 #Paragraph2 {
-    padding: 100px;
+    padding: 80x;
     margin: 0px;
     display: flex;
     justify-content: center;
@@ -33,9 +33,9 @@ h1 {
 }
 
 #Paragraph2:hover {
-    transition: ease-in-out 0.5s;
+    transition: fade-in-out 0.5s;
+    text-transform: scale (0);
     background-image: url(https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/images/watchfuleyes.gif);
-    text-decoration-color: transparent;
     justify-content: center;
     justify-items: center;
     align-items: center;
