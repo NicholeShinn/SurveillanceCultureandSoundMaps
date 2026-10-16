@@ -1,6 +1,6 @@
 @font-face {
-    font-family: Futura;
-    src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalFonts/FuturaRenner-Regular.otf") format("opentype");
+    font-family: MoMA Sans Web Bold Regular;
+    src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalFonts/MoMA-Sans-Web-Bold-Regular.otf") format("opentype");
 }
 
 
@@ -9,9 +9,8 @@ body{
     margin: 0;
 }
 
-h3 {
-    font-family: 'Moonlight', Arial, sans-serif;
-
+h1 {
+    font-family: 'MoMA Sans Web Bold Regular';
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
     text-align: center;
 }
@@ -36,6 +35,9 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'MoMA Sans Web Bold Regular';
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    text-align: center;
 }
 
 #Paragraph2:hover {
