@@ -15,6 +15,12 @@ h1 {
     font-size: 64pt
 }
 
+h3 {
+    font-family: 'MoMA Sans Web Bold Regular';
+    text-align: center;
+    font-size: 20pt
+}
+
 #Title{
     display: flex;
     justify-content: center;
@@ -47,42 +53,12 @@ h1 {
     align-items: center;
 }
 
-#pic01 {
-    filter: drop-shadow(10px 10px 10px black);
-    border-radius: 8px;
-}
-
-#pic02 {
-    filter: drop-shadow(10px 10px 10px black);
-    border-radius: 50%;
-}
-
-#pic03 {
-    filter: drop-shadow(10px 10px 10px black);
-    opacity: 0.5;
-}
-
-#pic04 {
-    filter: drop-shadow(10px 10px 10px black);
-    filter: brightness(150%);
-}
-
-#pic05 {
-    filter: drop-shadow(10px 10px 10px black);
-    filter: grayscale(60%);
-}
-
-#pic06 {
-    filter: drop-shadow(10px 10px 10px black);
-    filter: hue-rotate(200deg);
-}
-
 .subpagecontainer {
   display: grid;
   grid-template-columns: auto auto auto;
-  column-gap: 20px;
-  row-gap: 2px;
-  padding: 5%;
+  column-gap: 5px;
+  row-gap: 10px;
+  padding: 100px;
   margin: auto;
   justify-content: center;
   justify-items: center;
@@ -90,7 +66,7 @@ h1 {
 }
 
 .subpagecontainer div {
-  padding: 5px;
+  padding: 25px;
   margin: auto;
   text-align: center;
   line-height: 1em;
@@ -99,57 +75,23 @@ h1 {
 }
 
 #hoverpicholder {
-    padding: 40px;
-    margin: 10px;
+    padding: 0px;
+    margin: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    position: relative;
-    animation-name: colorshift;
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
 }
 
 #hoverpic {
-    padding: 40px;
-    margin: 5%;
+    padding: 0px;
+    margin: 0%;
     display:flex;
     justify-content: center;
     align-items: center;
 }
 
-#hoverpic:hover {
-    transform: scale(2.5) rotate(10deg) translate(0px, -20px);
+#hoverpic:hover{
+    transform: scale(2.5) translate(0px, -20px);
     transition: ease-in-out 0.5s;
+    transition-duration: 2s;
     }
-
-#animatedpic {
-    padding: 40px;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    position: relative;
-    animation-name: animatedpicture;
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
-}
-
-@keyframes animatedpicture {
-    0% {
-        left: 0px;
-        top: 0px;}
-    50% {
-        left: 0px;
-        top: 200px;
-        transform: scale(0.5, 0.5);}
-    75% {
-        left: 0px;
-        top: 200px;
-        transform: scale(-1, -1);}
-    100% {
-        left: 0px;
-        top: 0px;}
-}
