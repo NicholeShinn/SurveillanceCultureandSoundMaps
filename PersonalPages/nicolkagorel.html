@@ -10,22 +10,27 @@
 <!-- body captures everything in the website, so everything should be nested in the body tag. H1 is the first header declaration -->
 <body>
 
-<img src="PersonalPagesImages/boombox.gif">  <h1>I am asking you to listen.</h1> 
+  <div class="title-row">
+  <img src="PersonalPagesImages/boombox.gif" alt="" class="title-gif">
+  <h1 class="site-title">I am asking you to listen.</h1>
+  <img src="PersonalPagesImages/boombox.gif" alt="" class="title-gif">
+</div>
 
-<img src="PersonalPagesImages/boombox.gif">   
-    
+<div class="player">
+    <h2>Now Playing</h2>
+    <audio controls>
+      <source src="PersonalPages/PersonalPagesSounds/nicolkasounds/location 1 - park 10-4-2026.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  
 <!-- br is a line break for spacing and p is paragraph for text and hr is a horizontal line on the page -->
 <br>
 <h3> This place is located within the geographical boundaries of the region. There are many spaces like this, but this one is here. </h3>
 <br>
 <hr>
 
-<p>
-<audio controls>
-  <source src="https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/Sounds/testing.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>    
-</p>    
 
 <!-- a div is a container, it is useful to categorize your elements. you can give it an id and a class which both reference to the css stylesheet -->
 <div id="pic01" class="imagediv">
