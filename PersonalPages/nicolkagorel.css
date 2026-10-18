@@ -36,7 +36,7 @@ p{
 
 /* #lorem is reference to an ID you assigned in the html sheet. */
 #lorem{
-    background-color: #e9e8e9;
+    background-color: #4b3884;
     padding: 50px;
     font-family: 'Redaction20', Arial, sans-serif;
     text-shadow: 2px 2px 0px white;
@@ -51,4 +51,26 @@ p{
 .mycontainer div {
   width:33%;  
   float:left;
+}
+
+.title-row {
+  position: absolute;          /* centers the whole row on the page */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;               /* puts the children side by side */
+  align-items: center;         /* vertically centers gifs with the text */
+  gap: 24px;                   /* space between gifs and title */
+}
+
+.site-title {
+  position: static;            /* remove the old absolute positioning */
+  transform: none;
+  margin: 0;
+  font-size: 4rem;
+}
+
+.title-gif {
+  height: 80px;                /* adjust to taste */
+  width: auto;
 }
