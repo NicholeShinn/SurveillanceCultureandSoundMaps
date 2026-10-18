@@ -11,7 +11,7 @@ body{
 }
 
 h3 {
-    font-family: 'epilog', Arial, sans-serif;
+    font-family: 'courier', Arial, sans-serif;
     text-shadow: 0 0 10px #fff, 0 0 20px #090707, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
     text-align: center;
 }
@@ -20,7 +20,7 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: epilog;
+    font-family: courier;
 }
 
 .paragraphbody {
@@ -290,17 +290,26 @@ h3 {
 @keyframes truckanimation3 {
 
   0%    {
-    left:300px; top:0px;
+    left:400px; top:0px;
     transform: scale(.75, .75)}
   50%   {
-    left:500px; top:0px;}
-  60%   {
-    left:0px; top:0px;}
-  100%  {
-    left: 100px; top:0px;
-    transform: scale(.60, .60)}
+    left:900px; top:0px;
+    transform:scale(1.1, 1.1)}
+  50%   {
+    left:900px; top:0px;
+    transform: scale(1, 1)}
+  90%  {
+    left: 200px; top:0px;
+    transform: scale(.6, .6)}
+  99%  {
+    left:399px; top:0px;
+    transform: scale(.7, .7);}
+  100% {
+    left:400px; top:0px;
+    transform: scale(.75, .75)}
+
   }
 
-  #truckanimation2 > img {
+  #truckanimation3 > img {
     height: 300px;
 }
