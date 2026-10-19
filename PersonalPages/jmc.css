@@ -1,0 +1,97 @@
+@font-face {
+    font-family: MoMA Sans Web Bold Regular;
+    src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalFonts/MoMA-Sans-Web-Bold-Regular.otf") format("opentype");
+}
+
+
+body{
+    background-color: #fffff;
+    margin: 0;
+}
+
+h1 {
+    font-family: 'MoMA Sans Web Bold Regular';
+    text-align: center;
+    font-size: 64pt
+}
+
+h3 {
+    font-family: 'MoMA Sans Web Bold Regular';
+    text-align: center;
+    font-size: 20pt
+}
+
+#Title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Paragraph2 {
+    padding:87px;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'MoMA Sans Web Bold Regular';
+    text-align: center;
+    font-size: 25pt
+}
+
+#Paragraph2:hover {
+    transition: fade-in-out 0.75s;
+    background-image: url(https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/images/watchfuleyes.gif);
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+#audio1{    
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subpagecontainer {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 20px;
+  row-gap: 2px;
+  padding: 5%;
+  margin: auto;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.subpagecontainer div {
+  padding: 5px;
+  margin: auto;
+  text-align: center;
+  line-height: 1em;
+  justify-content: center;
+  align-items: center;
+}
+
+#hoverpicholder {
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hoverpic {
+    padding: 0px;
+    margin: 0%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hoverpic:hover{
+    transform: scale(2) translate(0px, -20px);
+    transition: ease-in-out 2s;
+    transition-duration: 2s;
+    }
