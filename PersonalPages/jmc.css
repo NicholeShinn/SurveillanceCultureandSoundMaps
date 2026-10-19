@@ -56,9 +56,9 @@ h3 {
 .subpagecontainer {
   display: grid;
   grid-template-columns: auto auto auto;
-  column-gap: 20px;
-  row-gap: 2px;
-  padding: 5%;
+  column-gap: auto;
+  row-gap: auto;
+  padding-top: 300pt;
   margin: auto;
   justify-content: center;
   justify-items: center;
@@ -67,7 +67,7 @@ h3 {
 
 .subpagecontainer div {
   padding: 5px;
-  margin: auto;
+  margin: 5px;
   text-align: center;
   line-height: 1em;
   justify-content: center;
@@ -91,7 +91,7 @@ h3 {
 }
 
 #hoverpic:hover{
-    transform: scale(2) translate(0px, -20px);
-    transition: ease-in-out 2s;
-    transition-duration: 2s;
+    transform: scale(2);
+    transition:ease-in-out;
+    transition-duration:2s;
     }
