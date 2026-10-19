@@ -31,6 +31,14 @@ h3 {
 
 }
 
+.fieldnotes {
+  text-align: center;
+  padding-left: 8%;
+  padding-right: 8%;
+  font-family: 'Courier New', Courier, monospace;
+
+}
+
 #Paragraph1{
     padding: 40px;
     margin: 10px;
