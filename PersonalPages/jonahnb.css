@@ -39,11 +39,10 @@ h2 {
 }
 
 .fieldnotes {
-  text-align: center;
+  text-align: justify;
   padding-left: 8%;
   padding-right: 8%;
   font-family: 'Courier New', Courier, monospace;
-
 }
 
 #Paragraph1{
@@ -267,7 +266,7 @@ h2 {
 }
 
 #truckanimation2 > img {
-    height: 500px;
+    height: 400px;
 }
 
 .group:after {
@@ -344,18 +343,20 @@ h2 {
 }
 @keyframes truckanimation4 {
   0%   {
-    left:600px; top:0px;
-    transform: scale(0, 0)}
+    left:600px; top:0px;}
   50%   {
     left:200px; top:0px;}
   60%   {
     left:200px; top:0px;}
   100%  {
-    left: -900px; top:0px;
-    transform: scale(.9, .9)
-  }
+    left: 800px; top:0px;}
 }
 
-#truckanimation2 > img {
-    height: 300px;
+#truckanimation4 > img {
+    height: 250px;
+}
+
+#stationarytruck > img{
+  justify-content: center;  
+  height: 250px;
 }
