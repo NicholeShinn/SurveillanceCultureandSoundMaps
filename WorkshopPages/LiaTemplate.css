@@ -3,9 +3,9 @@ body{
     background-image: url("WorkshopImages/lia images/dollybg.png");
     background-repeat: repeat; 
     background-position: center;
-    background-attachment: none
+    background-attachment: fixed;
     background-size: cover;
-    margin: 0px;
+    margin: 20px;
     background-color: #f5c2ff;
 }
 
