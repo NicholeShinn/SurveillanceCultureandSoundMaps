@@ -309,15 +309,6 @@ h2 {
   50%   {
     left:900px; top:0px;
     transform:scale(1.1, 1.1)}
-  50%   {
-    left:900px; top:0px;
-    transform: scale(1, 1)}
-  90%  {
-    left: 200px; top:0px;
-    transform: scale(.6, .6)}
-  99%  {
-    left:399px; top:0px;
-    transform: scale(.7, .7);}
   100% {
     left:400px; top:0px;
     transform: scale(.75, .75)}
@@ -328,8 +319,8 @@ h2 {
     height: 300px;
 }
 
-#truckanimation2 {
-    margin: 10px;
+#truckanimation4 {
+  margin: 10px;
     display: auto;
     justify-content: center;
     align-items: center;
@@ -337,26 +328,30 @@ h2 {
     margin-bottom: 1px;
 
     position: relative;
-    animation-name: truckanimation2;
-    animation-duration: 20s;
+    animation-name: truckanimation4;
+    animation-duration: 14s;
     animation-iteration-count: infinite;
 }
 @keyframes truckanimation4 {
   0%   {
-    left:600px; top:0px;}
+    left:-400px; top:0px;
+    transform: scale(.9, .9)}
   50%   {
-    left:200px; top:0px;}
+    left:400px; top:00px;}
   60%   {
-    left:200px; top:0px;}
+    left:370px; top:0px;}
   100%  {
-    left: 800px; top:0px;}
+    left: 900px; top:0px;
+    transform: scale(.9, .9)
+  }
 }
 
 #truckanimation4 > img {
     height: 250px;
 }
 
-#stationarytruck > img{
-  justify-content: center;  
+#stationarytruck > img {
+  display: flex;
+  justify-content: left; 
   height: 250px;
 }
