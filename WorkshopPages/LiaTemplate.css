@@ -1,8 +1,10 @@
 /* Body represents everything that exists on the page, so all content is referenced here. This is great for overall background and margins */
 body{
-    background-image: url("WorkshopImages/lia images/Screenshot 2026-10-04 at 4.31.42 PM.png"); width: 100%;
+    background-image: url("WorkshopImages/lia images/dollybg.png");
+    background-repeat: repeat; 
     background-position: center;
-    background-repeat: repeat;repeat
+    background-attachment: fixed;
+    background-size: cover;
     margin: 0px;
     background-color: #f5c2ff;
 }
