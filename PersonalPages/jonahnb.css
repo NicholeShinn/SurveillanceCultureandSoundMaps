@@ -16,6 +16,13 @@ h3 {
     text-align: center;
 }
 
+h2 {
+    font-family: 'courier', Arial, sans-serif;
+    text-shadow: 0 0 10px #fff, 0 0 20px #090707, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
+    text-align: center;
+   text-size-adjust: 20%;
+}
+
 #Title{
     display: flex;
     justify-content: center;
@@ -218,7 +225,7 @@ h3 {
 }
 @keyframes truckanimation {
   0%   {
-    left:-1000px; top:0px;}
+    left:-600px; top:0px;}
   10% {
      left:-400px; top:0px;}
   50%  {
@@ -319,5 +326,36 @@ h3 {
   }
 
   #truckanimation3 > img {
+    height: 300px;
+}
+
+#truckanimation2 {
+    margin: 10px;
+    display: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1px;
+    margin-bottom: 1px;
+
+    position: relative;
+    animation-name: truckanimation2;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+}
+@keyframes truckanimation4 {
+  0%   {
+    left:600px; top:0px;
+    transform: scale(0, 0)}
+  50%   {
+    left:200px; top:0px;}
+  60%   {
+    left:200px; top:0px;}
+  100%  {
+    left: -900px; top:0px;
+    transform: scale(.9, .9)
+  }
+}
+
+#truckanimation2 > img {
     height: 300px;
 }
