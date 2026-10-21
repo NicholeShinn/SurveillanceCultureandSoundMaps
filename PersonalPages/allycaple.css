@@ -5,7 +5,7 @@
 
 
 body{
-    background-color: #556B2F;
+    background-color: #2F4F4F;
     margin: 0;
 }
 
@@ -45,33 +45,33 @@ h3 {
 }
 
 #pic01 {
-    filter: drop-shadow(10px 10px 10px black);
+    filter:
     border-radius: 8px;
 }
 
 #pic02 {
-    filter: drop-shadow(10px 10px 10px black);
+    filter:
     border-radius: 50%;
 }
 
 #pic03 {
-    filter: drop-shadow(10px 10px 10px black);
-    opacity: 0.5;
+    filter:
+
 }
 
 #pic04 {
-    filter: drop-shadow(10px 10px 10px black);
-    filter: brightness(150%);
+    filter:
+    filter:
 }
 
 #pic05 {
-    filter: drop-shadow(10px 10px 10px black);
-    filter: grayscale(60%);
+    filter:
+    filter:
 }
 
 #pic06 {
-    filter: drop-shadow(10px 10px 10px black);
-    filter: hue-rotate(200deg);
+    filter:
+    filter:
 }
 
 .subpagecontainer div {
@@ -83,44 +83,13 @@ h3 {
   align-items: center;
 }
 
-#hoverpicholder {
+#headerpic {
     padding: 40px;
     margin: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    position: relative;
-    animation-name: colorshift;
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
-}
-
-#hoverpic {
-    padding: 40px;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#hoverpic:hover {
-    transform: scale(2.5) rotate(10deg) translate(0px, -20px);
-    filter: blur(3px);
-    transition: ease-in-out 0.5s;
-    }
-
-#animatedpic {
-    padding: 40px;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    position: relative;
-    animation-name: animatedpicture;
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
 }
 
 @keyframes animatedpicture {
