@@ -5,13 +5,13 @@
 
 
 body{
-    background-color: #f700ff;
+    background-color: #500000;
     margin: 0;
 }
 
 h3 {
     font-family: 'Moonlight', Arial, sans-serif;
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
     text-align: center;
 }
 
@@ -98,46 +98,9 @@ h3 {
     100% {
         background-color: red;}
 }
-
-#hoverpicholder {
-    padding: 40px;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    position: relative;
-    animation-name: colorshift;
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
 }
 
-#hoverpic {
-    padding: 40px;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-#hoverpic:hover {
-    transform: scale(2.5) rotate(10deg) translate(0px, -20px);
-    filter: blur(3px);
-    transition: ease-in-out 0.5s;
-    }
-
-#animatedpic {
-    padding: 40px;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    position: relative;
-    animation-name: animatedpicture;
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
-}
 
 @keyframes animatedpicture {
     0% {
