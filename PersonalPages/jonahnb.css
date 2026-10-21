@@ -11,16 +11,23 @@ body{
 }
 
 h3 {
-    font-family: 'epilog', Arial, sans-serif;
+    font-family: 'courier', Arial, sans-serif;
     text-shadow: 0 0 10px #fff, 0 0 20px #090707, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
     text-align: center;
+}
+
+h2 {
+    font-family: 'courier', Arial, sans-serif;
+    text-shadow: 0 0 10px #fff, 0 0 20px #090707, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
+    text-align: center;
+   text-size-adjust: 20%;
 }
 
 #Title{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: epilog;
+    font-family: courier;
 }
 
 .paragraphbody {
@@ -29,6 +36,13 @@ h3 {
   padding-right: 20%;
   font-family: 'Courier New', Courier, monospace;
 
+}
+
+.fieldnotes {
+  text-align: justify;
+  padding-left: 8%;
+  padding-right: 8%;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 #Paragraph1{
@@ -210,7 +224,7 @@ h3 {
 }
 @keyframes truckanimation {
   0%   {
-    left:-1000px; top:0px;}
+    left:-600px; top:0px;}
   10% {
      left:-400px; top:0px;}
   50%  {
@@ -252,7 +266,7 @@ h3 {
 }
 
 #truckanimation2 > img {
-    height: 500px;
+    height: 400px;
 }
 
 .group:after {
@@ -290,17 +304,54 @@ h3 {
 @keyframes truckanimation3 {
 
   0%    {
-    left:300px; top:0px;
+    left:400px; top:0px;
     transform: scale(.75, .75)}
   50%   {
-    left:500px; top:0px;}
-  60%   {
-    left:0px; top:0px;}
-  100%  {
-    left: 100px; top:0px;
-    transform: scale(.60, .60)}
+    left:900px; top:0px;
+    transform:scale(1.1, 1.1)}
+  100% {
+    left:400px; top:0px;
+    transform: scale(.75, .75)}
+
   }
 
-  #truckanimation2 > img {
+  #truckanimation3 > img {
     height: 300px;
+}
+
+#truckanimation4 {
+  margin: 10px;
+    display: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1px;
+    margin-bottom: 1px;
+
+    position: relative;
+    animation-name: truckanimation4;
+    animation-duration: 14s;
+    animation-iteration-count: infinite;
+}
+@keyframes truckanimation4 {
+  0%   {
+    left:-400px; top:0px;
+    transform: scale(.9, .9)}
+  50%   {
+    left:400px; top:00px;}
+  60%   {
+    left:370px; top:0px;}
+  100%  {
+    left: 900px; top:0px;
+    transform: scale(.9, .9)
+  }
+}
+
+#truckanimation4 > img {
+    height: 250px;
+}
+
+#stationarytruck > img {
+  display: flex;
+  justify-content: left; 
+  height: 250px;
 }
