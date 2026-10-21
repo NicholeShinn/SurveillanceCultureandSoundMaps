@@ -10,13 +10,26 @@ body{
 }
 
 h1 {
-    font-family: 'Digital Clock'
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #FFFAF0, 0 0 40px #FFFAF0, 0 0 50px #FFFAF0, 0 0 60px #FFFAF0, 0 0 70px #FFFAF0;
+    font-family: 'Digital Clock', Arial, sans-serif;
+    color: #FFFAF0;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Digital Clock', Arial, sans-serif;
+    color: #FFFAF0;
+    text-align: center;
+}
+
+h3 {
+    font-family: 'Digital Clock', Arial, sans-serif;
+    color: #FFFAF0;
     text-align: center;
 }
 
 p {
     font-family: 'Digital Clock', Arial, sans-serif;
+    color: #FFFAF0;
     text-align: center;
 }
 
