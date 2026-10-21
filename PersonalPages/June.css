@@ -90,11 +90,11 @@ h3 {
     0% {
         background-color: red;}
     25% {
-        background-color: yellow;}
+        background-color: black;}
     50% {
-        background-color: blue;}
+        background-color: red;}
     75% {
-        background-color: green;}
+        background-color: black;}
     100% {
         background-color: red;}
 }
@@ -121,9 +121,9 @@ h3 {
 }
 
 #hoverpic:hover {
-    transform: scale(2.5) rotate(10deg) translate(0px, -20px);
+    transform: scale(1.1) rotate(75deg) translate(0px, -20px);
     filter: blur(3px);
-    transition: ease-in-out 0.5s;
+    transition: ease-in-out 1s;
     }
 
 
