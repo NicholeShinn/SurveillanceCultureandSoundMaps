@@ -3,6 +3,9 @@
     src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalFonts/digital-clock.otf") format("opentype");
 }
 
+{
+  cursor: pointer;
+}
 
 body{
     background-color: #2F4F4F;
