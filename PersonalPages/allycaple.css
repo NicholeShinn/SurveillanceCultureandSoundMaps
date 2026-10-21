@@ -1,6 +1,6 @@
 @font-face {
     font-family: Digital Clock;
-    src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalFonts/digital-clock.ttf") format("opentype");
+    src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalFonts/digital-clock.otf") format("opentype");
 }
 
 
@@ -11,7 +11,7 @@ body{
 
 h3 {
     font-family: 'Digital Clock'
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #FFFAF0, 0 0 40px #FFFAF0, 0 0 50px #FFFAF0, 0 0 60px #FFFAF0, 0 0 70px #FFFAF0;
     text-align: center;
 }
 
@@ -40,7 +40,7 @@ h3 {
 .container div {
 position: relative;
   padding: 5px;
-  margin: auto;
+  margin: 10px;
   text-align: center;
   line-height: 1em;
   justify-content: center;
