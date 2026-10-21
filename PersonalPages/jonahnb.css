@@ -1,5 +1,5 @@
 @font-face {
-    font-family: Redaction;
+    font-family: 'Courier New', Courier, monospace;
     src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalFonts/Basteleur-Moonlight.otf") format("opentype");
 }
 
@@ -7,19 +7,42 @@
 body{
     background-color: #9978ec;
     margin: 0;
+    max-width: 100%;
 }
 
 h3 {
-    font-family: 'epilog', Arial, sans-serif;
+    font-family: 'courier', Arial, sans-serif;
     text-shadow: 0 0 10px #fff, 0 0 20px #090707, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
     text-align: center;
+}
+
+h2 {
+    font-family: 'courier', Arial, sans-serif;
+    text-shadow: 0 0 10px #fff, 0 0 20px #090707, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
+    text-align: center;
+   text-size-adjust: 20%;
 }
 
 #Title{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: epilog;
+    font-family: courier;
+}
+
+.paragraphbody {
+  text-align: center;
+  padding-left: 20%;
+  padding-right: 20%;
+  font-family: 'Courier New', Courier, monospace;
+
+}
+
+.fieldnotes {
+  text-align: justify;
+  padding-left: 8%;
+  padding-right: 8%;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 #Paragraph1{
@@ -28,6 +51,7 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 #Paragraph2 {
@@ -59,6 +83,7 @@ h3 {
     display: flex;
     justify-content: center;
     padding-top: 5%;
+    height: 90%
 }
 
 #pic01 {
@@ -111,6 +136,7 @@ h3 {
   line-height: 1em;
   justify-content: center;
   align-items: center;
+  margin-bottom: 3px
 }
 
 @keyframes colorshift {
@@ -198,7 +224,7 @@ h3 {
 }
 @keyframes truckanimation {
   0%   {
-    left:-1000px; top:0px;}
+    left:-600px; top:0px;}
   10% {
      left:-400px; top:0px;}
   50%  {
@@ -208,32 +234,40 @@ h3 {
     left:100px; top:00px;
     transform: scale(1.25, 1.25)}
   100%  {
-    left: 1300px; top:5px;
+    left: 600px; top:5px;
   }
 }
 
 #truckanimation2 {
-    padding: 10px;
     margin: 10px;
-    display: flex;
+    display: auto;
     justify-content: center;
     align-items: center;
+    margin-top: 1px;
+    margin-bottom: 1px;
 
     position: relative;
     animation-name: truckanimation2;
-    animation-duration: 40s;
+    animation-duration: 20s;
     animation-iteration-count: infinite;
 }
 @keyframes truckanimation2 {
   0%   {
-    left:1000px; top:200px;
-    transform: scale(.50, .50)}
+    left:600px; top:0px;
+    transform: scale(.9, .9)}
+  50%   {
+    left:200px; top:0px;}
+  60%   {
+    left:200px; top:0px;}
   100%  {
-    left: -1300px; top:200px;
-    transform: scale(.6, .6)
+    left: -900px; top:0px;
+    transform: scale(.9, .9)
   }
 }
 
+#truckanimation2 > img {
+    height: 400px;
+}
 
 .group:after {
   content: "";
@@ -251,4 +285,73 @@ h3 {
 .images {
   float: right;
   width: 70%;
+}
+
+
+#truckanimation3 {
+    margin: 10px;
+    display: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1px;
+    margin-bottom: 1px;
+
+    position: relative;
+    animation-name: truckanimation3;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+}
+@keyframes truckanimation3 {
+
+  0%    {
+    left:400px; top:0px;
+    transform: scale(.75, .75)}
+  50%   {
+    left:900px; top:0px;
+    transform:scale(1.1, 1.1)}
+  100% {
+    left:400px; top:0px;
+    transform: scale(.75, .75)}
+
+  }
+
+  #truckanimation3 > img {
+    height: 300px;
+}
+
+#truckanimation4 {
+  margin: 10px;
+    display: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1px;
+    margin-bottom: 1px;
+
+    position: relative;
+    animation-name: truckanimation4;
+    animation-duration: 14s;
+    animation-iteration-count: infinite;
+}
+@keyframes truckanimation4 {
+  0%   {
+    left:-400px; top:0px;
+    transform: scale(.9, .9)}
+  50%   {
+    left:400px; top:00px;}
+  60%   {
+    left:370px; top:0px;}
+  100%  {
+    left: 900px; top:0px;
+    transform: scale(.9, .9)
+  }
+}
+
+#truckanimation4 > img {
+    height: 250px;
+}
+
+#stationarytruck > img {
+  display: flex;
+  justify-content: left; 
+  height: 250px;
 }
