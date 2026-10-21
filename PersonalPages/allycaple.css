@@ -12,13 +12,13 @@ body{
 h3 {
     font-family: 'Digital Clock'
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
-    text-align: left;
+    text-align: center;
 }
 
 #Title{
     display: flex;
-    justify-content: left;
-    align-items: left;
+    justify-content: center;
+    align-items: center;
 }
 
 #Paragraph1{
@@ -35,6 +35,42 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.container div {
+position: relative;
+  padding: 5px;
+  margin: auto;
+  text-align: center;
+  line-height: 1em;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#headerpic1 {
+    padding: 40px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#headerpic2 {
+position: absolute;
+    padding: 40px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 1s linear;
+
+}
+
+.container: hover .headerpic2 {
+  opacity: 1;
 }
 
 #audio1{
@@ -68,23 +104,7 @@ h3 {
   align-items: center;
 }
 
-#headerpic {
-    padding: 40px;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-}
-
-#headerpic2 {
-    padding: 40px;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
 
 @keyframes animatedpicture {
     0% {
