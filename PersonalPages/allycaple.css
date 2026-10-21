@@ -9,9 +9,14 @@ body{
     margin: 0;
 }
 
-h3 {
+h1 {
     font-family: 'Digital Clock'
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #FFFAF0, 0 0 40px #FFFAF0, 0 0 50px #FFFAF0, 0 0 60px #FFFAF0, 0 0 70px #FFFAF0;
+    text-align: center;
+}
+
+p {
+    font-family: 'Digital Clock', Arial, sans-serif;
     text-align: center;
 }
 
@@ -51,7 +56,6 @@ position: relative;
 #headerpic1 {
     padding: 40px;
     margin: 10px;
-    display: flex;
     justify-content: center;
     align-items: center;
 
@@ -61,7 +65,6 @@ position: relative;
 position: absolute;
     padding: 40px;
     margin: 10px;
-    display: flex;
     justify-content: center;
     align-items: center;
     opacity: 0;
@@ -74,7 +77,7 @@ position: absolute;
 }
 
 #audio1{
-    padding: 50px;
+    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,16 +85,17 @@ position: absolute;
 
 #pic01 {
     filter:
-    border-radius: 8px;
+    align-items: center;
 }
 
 #pic02 {
     filter:
-    border-radius: 50%;
+    align-items: center;
 }
 
 #pic03 {
     filter:
+    align-items: center;
 
 }
 
