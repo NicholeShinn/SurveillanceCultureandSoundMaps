@@ -3,12 +3,13 @@
     src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalFonts/digital-clock.otf") format("opentype");
 }
 
-
+.cursor{
+  cursor: pointer; color: #ADFF2F;
+}
 
 body{
     background-color: #2F4F4F;
     margin: 0;
-    cursor: pointer; color: #ADFF2F;
 }
 
 h1 {
