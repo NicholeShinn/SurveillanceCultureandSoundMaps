@@ -15,6 +15,27 @@
             fill: #00ffbf;
             filter: drop-shadow(10px 10px 7px orange);
         }
+
+          /* Hide popup image by default */
+        .popup01 {
+         display: none;
+         pointer-events: none; /* Prevent blocking hover */
+         }
+
+        .popup02{
+        display:none;
+        pointer-events: none;
+        }
+
+        /* Show popup when parent is hovered */
+       .circles01:hover + .popup01 {
+        display: block;
+        }
+
+        .circles02:hover + .popup02{
+            display:block;
+        }
+ 
 }
     </style>
   
@@ -1060,31 +1081,34 @@
      title="Zimbabwe"
      id="ZW" />
 
-
 </g>
 
-<a class="hover-sound" href="www.nicholeshinn.com"><circle stroke="#ff003c"stroke-width="3" cx="250" cy="340" r="4" /></a>
-<audio id="hover-audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+<a class="circles01" href="www.nicholeshinn.com" target="_blank"><circle stroke="#ff003c"stroke-width="3" cx="250" cy="340" r="4" /></a>
+
+<image class="popup01" x="150" y="50" width="120" height="120" href="http://www.websitecodetutorials.com/code/images/jamie-small1big.jpg"/>
+
+<a class="circles02" href="www.nicholeshinn.com" target="_blank"><circle stroke="#ff003c"stroke-width="3" cx="260" cy="345" r="4" /></a>
+
+<image class="popup02" x="170" y="50" width="120" height="120" href="http://www.websitecodetutorials.com/code/images/jamie-small1big.jpg"/>
+
+<a class="circles03" href="www.nicholeshinn.com" target="_blank"><circle stroke="#ff003c"stroke-width="3" cx="270" cy="330" r="4" /></a>
+
+<a class="circles04" href="www.nicholeshinn.com" target="_blank"><circle stroke="#ff003c"stroke-width="3" cx="275" cy="330" r="4" /></a>
+
+<a class="circles05" href="www.nicholeshinn.com" target="_blank"><circle stroke="#ff003c"stroke-width="3" cx="280" cy="330" r="4" /></a>
+
+<a class="circles06" href="www.nicholeshinn.com" target="_blank"><circle stroke="#ff003c"stroke-width="3" cx="285" cy="330" r="4" /></a>
+
+<a class="circles07" href="www.nicholeshinn.com" target="_blank"><circle stroke="#ff003c"stroke-width="3" cx="140" cy="355" r="4" /></a>
+
+<a class="circles08" href="www.nicholeshinn.com" target="_blank"><circle stroke="#ff003c"stroke-width="3" cx="240" cy="340" r="4" /></a>
 
 </svg>
 </div>
 
-<div class="hover-sound"><p>This is a collection of sound maps done in the fall of 2026 for the <a href="https://sfpc.study/">School for Poetic Computation</a> class Surveillance Culture and Sound Maps taught by <a href="www.nicholeshinn.com">Nichole Shinn</a> & <a href="www.hatim.tips">Hatim Benhsain</a>.</p></div>
-<div class="hover-sound">Hover over me!</div>
+<div><p>This is a collection of sound maps done in the fall of 2026 for the <a href="https://sfpc.study/">School for Poetic Computation</a> class Surveillance Culture and Sound Maps taught by <a href="https://www.nicholeshinn.com">Nichole Shinn</a> & <a href="https://www.hatim.tips">Hatim Benhsain</a>.</p></div>
 
-<script>
-const hoverSound = document.getElementById('hover-audio');
-const hoverElement = document.querySelector('.hover-sound');
 
-hoverElement.addEventListener('mouseover', () => {
-hoverSound.play();
-});
-
-hoverElement.addEventListener('mouseout', () => {
-hoverSound.pause();
-hoverSound.currentTime = 0;
-});
-</script>
 
 </body>
     

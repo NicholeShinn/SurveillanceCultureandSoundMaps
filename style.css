@@ -26,12 +26,16 @@ a{
     text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #e60073, 0 0 40px #71ff00, 0 0 50px #71ff00, 0 0 60px #71ff00, 0 0 70px #71ff00;
 }
 
-#circles{
-       filter: drop-shadow(10px 10px 7px orange);
+.circles span{
+    position:absolute;
+	visibility:hidden;
 }
 
-#circles:hover{
-
+.circles:hover, .circles:hover span {
+    visibility:visible;
+	top:0;
+	left:100px; 
+	z-index:1;
 }
 
 #svgitem{
