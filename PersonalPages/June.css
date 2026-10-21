@@ -98,23 +98,33 @@ h3 {
     100% {
         background-color: red;}
 }
+
+#hoverpicholder {
+    padding: 40px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    animation-name: colorshift;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
 }
 
-
-
-@keyframes animatedpicture {
-    0% {
-        left: 0px;
-        top: 0px;}
-    50% {
-        left: 0px;
-        top: 200px;
-        transform: scale(0.5, 0.5);}
-    75% {
-        left: 0px;
-        top: 200px;
-        transform: scale(-1, -1);}
-    100% {
-        left: 0px;
-        top: 0px;}
+#hoverpic {
+    padding: 40px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+#hoverpic:hover {
+    transform: scale(2.5) rotate(10deg) translate(0px, -20px);
+    filter: blur(3px);
+    transition: ease-in-out 0.5s;
+    }
+
+
+
