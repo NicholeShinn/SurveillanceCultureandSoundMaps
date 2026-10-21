@@ -40,8 +40,8 @@ h3 {
 #audio1{
     padding: 50px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    align-items: left;
 }
 
 #pic01 {
@@ -72,20 +72,6 @@ h3 {
 #pic06 {
     filter: drop-shadow(10px 10px 10px black);
     filter: hue-rotate(200deg);
-}
-
-.subpagecontainer {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  column-gap: 20px;
-  row-gap: 2px;
-  padding: 5%;
-  margin: auto;
-  background-image: url;
-  background-repeat: repeat;
-  justify-content: center;
-  justify-items: center;
-  align-items: center;
 }
 
 .subpagecontainer div {
