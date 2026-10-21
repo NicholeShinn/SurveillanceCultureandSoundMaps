@@ -37,14 +37,6 @@ h3 {
     align-items: center;
 }
 
-#Paragraph2:hover {
-    transform: rotate(20deg);
-    text-shadow: 0px 3px 3px black, 0 0 25px #3305FD, 1px 0 3px #A1014C, 0 0 40px #5601A1;
-    filter: blur(3px);
-    color: white;
-    transition: ease-in-out 0.2s;
-}
-
 #audio1{    
     padding: 50px;
     display: flex;
@@ -72,19 +64,9 @@ h3 {
     filter: brightness(150%);
 }
 
-#pic05 {
-    filter: drop-shadow(10px 10px 10px black);
-    filter: grayscale(60%);
-}
-
-#pic06 {
-    filter: drop-shadow(10px 10px 10px black);
-    filter: hue-rotate(200deg);
-}
-
 .subpagecontainer {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto;
   column-gap: 20px;
   row-gap: 2px;
   padding: 5%;
