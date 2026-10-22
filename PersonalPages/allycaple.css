@@ -109,7 +109,11 @@ p {
 }
 
 .subpagecontainer div {
-  padding: 5px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 20px;
+  row-gap: 2px;
+  padding: 5%;
   margin: auto;
   text-align: center;
   line-height: 1em;
