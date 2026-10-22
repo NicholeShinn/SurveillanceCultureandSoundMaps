@@ -65,12 +65,18 @@ p {
 
 }
 
-#headerpic1 {
+ #PicBodyCopy {
+   background-color: #ADFF2F
+
+ }
+
+
+#image_hover {
     width: 100%
 
 }
 
-#headerpic2 {
+#image_hover2 {
     position: absolute;
     width: 100%
     top: 0;
@@ -80,7 +86,7 @@ p {
 
 }
 
-.container: hover .ac_newtree2 {
+.container: hover .image_hover2 {
   opacity: 1;
 
 }
@@ -108,7 +114,7 @@ p {
 
 }
 
-.subpagecontainer div {
+.subpagecontainer {
   display: grid;
   grid-template-columns: auto auto auto;
   column-gap: 20px;
@@ -120,23 +126,4 @@ p {
   justify-content: center;
   align-items: center;
 
-}
-</div
-
-
-@keyframes animatedpicture {
-    0% {
-        left: 0px;
-        top: 0px;}
-    50% {
-        left: 0px;
-        top: 200px;
-        transform: scale(0.5, 0.5);}
-    75% {
-        left: 0px;
-        top: 200px;
-        transform: scale(-1, -1);}
-    100% {
-        left: 0px;
-        top: 0px;}
 }
