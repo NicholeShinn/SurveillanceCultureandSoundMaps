@@ -122,6 +122,9 @@ PicBodyCopy {
 
 }
 
-header {
+
+#header {
+  filter: drop-shadow();
   align-items: center;
+
 }
