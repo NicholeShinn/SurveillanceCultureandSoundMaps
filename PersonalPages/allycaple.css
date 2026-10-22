@@ -129,5 +129,15 @@ p {
 #header {
   filter: drop-shadow();
   align-items: center;
+  display: grid;
+  grid-template-columns: auto;
+  column-gap: 20px;
+  row-gap: 5px;
+  padding: 5px;
+  margin: auto;
+  text-align: center;
+  line-height: 1em;
+  justify-content: center;
+  align-items: center;
 
 }
