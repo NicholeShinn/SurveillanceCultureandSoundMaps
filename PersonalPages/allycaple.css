@@ -65,8 +65,11 @@ p {
 
 }
 
-PicBodyCopy {
+#PicBodyCopy {
     color: #ADFF2F
+    padding: 10px
+    margin: 10px
+    display: flex
 
 }
 
