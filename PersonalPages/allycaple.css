@@ -8,14 +8,14 @@
 
 }
 
+a:hover {
+  background-color: #ADFF2F;
+
+}
+
 body{
     background-color: #2F4F4F;
     margin: 0;
-}
-
-title {
-    color: #ADFF2F;
-}
 
 }
 h1 {
@@ -62,12 +62,6 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.container {
-  position: relative;
-  margin: auto;
-  width: 300px
 
 }
 
@@ -86,7 +80,7 @@ p {
 
 }
 
-.container: hover .headerpic2 {
+.container: hover .ac_newtree2 {
   opacity: 1;
 
 }
@@ -115,14 +109,19 @@ p {
 }
 
 .subpagecontainer div {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 20px;
+  row-gap: 2px;
   padding: 5px;
   margin: auto;
   text-align: center;
   line-height: 1em;
   justify-content: center;
   align-items: center;
-}
 
+}
+</div
 
 
 @keyframes animatedpicture {
