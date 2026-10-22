@@ -22,6 +22,7 @@ h3 {
 }
 
 #Paragraph1{
+    font-style: oblique;
     padding: 40px;
     margin: 10px;
     display: flex;
