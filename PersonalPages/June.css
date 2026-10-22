@@ -16,6 +16,8 @@ h3 {
 }
 
 #Title{
+    font-size: 60px;
+    color:dimgrey;
     display: flex;
     justify-content: center;
     align-items: center;
