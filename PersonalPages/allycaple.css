@@ -68,29 +68,6 @@ p {
  #PicBodyCopy {
     color: #ADFF2F
 
- }
-
-
-#image_hover {
-    height: 300px
-    justify-content: center;
-    align-items: center;
-    opacity: 0
-
-}
-
-#image_hover:hover {
-  transform: scale(2.5)
-
-}
-
-#image_hover2 {
-    position: absolute;
-    height: 300px
-    align-items: center;
-    opacity: 50;
-    transition: all 1s linear;
-
 }
 
 
