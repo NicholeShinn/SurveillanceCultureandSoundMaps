@@ -101,7 +101,7 @@ p {
   display: grid;
   grid-template-columns: auto auto auto;
   column-gap: 20px;
-  row-gap: 2px;
+  row-gap: 20px;
   padding: 5px;
   margin: auto;
   text-align: center;
@@ -115,7 +115,7 @@ p {
   display: grid;
   grid-template-columns: auto auto;
   column-gap: 20px;
-  row-gap: 5px;
+  row-gap: 20px;
   padding: 5px;
   margin: auto;
   text-align: center;
