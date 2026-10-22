@@ -3,7 +3,7 @@
     src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalFonts/digital-clock.otf") format("opentype");
 }
 
-.cursor{
+cursor{
   cursor: pointer;
 
 }
@@ -49,7 +49,7 @@ p {
 }
 
 #Paragraph1{
-    padding: 40px;
+    padding: 10px;
     margin: 10px;
     display: flex;
     justify-content: center;
@@ -57,7 +57,7 @@ p {
 }
 
 #Paragraph2 {
-    padding: 40px;
+    padding: 10px;
     margin: 10px;
     display: flex;
     justify-content: center;
