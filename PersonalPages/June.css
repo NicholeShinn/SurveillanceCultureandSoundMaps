@@ -57,11 +57,13 @@ h3 {
 
 #pic03 {
     filter: drop-shadow(10px 10px 10px black);
+    border-radius: 50%;
     opacity: 0.5;
 }
 
 #pic04 {
     filter: drop-shadow(10px 10px 10px black);
+    border-radius: 50%;
     filter: brightness(150%);
 }
 
