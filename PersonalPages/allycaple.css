@@ -59,31 +59,23 @@ p {
     align-items: center;
 }
 
-.container div {
-position: relative;
-  padding: 5px;
-  margin: 10px;
-  text-align: center;
-  line-height: 1em;
-  justify-content: center;
-  align-items: center;
+.container {
+  position: relative;
+  margin: auto;
+  width: 300px
 
 }
 
 #headerpic1 {
-    padding: 40px;
-    margin: 10px;
-    justify-content: center;
-    align-items: center;
+    width: 100%
 
 }
 
 #headerpic2 {
-position: absolute;
-    padding: 40px;
-    margin: 10px;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+    width: 100%
+    top: 0;
+    left: 0;
     opacity: 0;
     transition: all 1s linear;
 
@@ -91,6 +83,7 @@ position: absolute;
 
 .container: hover .headerpic2 {
   opacity: 1;
+
 }
 
 #audio1{
