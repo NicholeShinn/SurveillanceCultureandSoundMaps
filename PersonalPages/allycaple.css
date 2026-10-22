@@ -107,3 +107,17 @@ p {
   align-items: center;
 
 }
+
+.subpagecontainer2 {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 20px;
+  row-gap: 2px;
+  padding: 5px;
+  margin: auto;
+  text-align: center;
+  line-height: 1em;
+  justify-content: center;
+  align-items: center;
+
+}
