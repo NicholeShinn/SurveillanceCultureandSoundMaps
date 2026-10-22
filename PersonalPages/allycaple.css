@@ -5,14 +5,19 @@
 
 .cursor{
   cursor: pointer;
-  color: #ADFF2F;
+
+}
+
+a:hover {
+  background-color: #ADFF2F;
+
 }
 
 body{
     background-color: #2F4F4F;
     margin: 0;
-}
 
+}
 h1 {
     font-family: 'Digital Clock', Arial, sans-serif;
     color: #FFFAF0;
@@ -57,40 +62,27 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.container div {
-position: relative;
-  padding: 5px;
-  margin: 10px;
-  text-align: center;
-  line-height: 1em;
-  justify-content: center;
-  align-items: center;
 
 }
 
 #headerpic1 {
-    padding: 40px;
-    margin: 10px;
-    justify-content: center;
-    align-items: center;
+    width: 100%
 
 }
 
 #headerpic2 {
-position: absolute;
-    padding: 40px;
-    margin: 10px;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+    width: 100%
+    top: 0;
+    left: 0;
     opacity: 0;
     transition: all 1s linear;
 
 }
 
-.container: hover .headerpic2 {
+.container: hover .ac_newtree2 {
   opacity: 1;
+
 }
 
 #audio1{
@@ -117,14 +109,19 @@ position: absolute;
 }
 
 .subpagecontainer div {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 20px;
+  row-gap: 2px;
   padding: 5px;
   margin: auto;
   text-align: center;
   line-height: 1em;
   justify-content: center;
   align-items: center;
-}
 
+}
+</div
 
 
 @keyframes animatedpicture {
