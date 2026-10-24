@@ -5,13 +5,13 @@
 
 
 body{
-    background-color: #f700ff;
+    background-color: #82A194;
     margin: 0;
 }
 
 h3 {
     font-family: 'Moonlight', Arial, sans-serif;
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #69857A, 0 0 40px #556B5F, 0 0 50px #44574B, 0 0 60px #2D3B32, 0 0 70px #A8BFB2;
     text-align: center;
 }
 
@@ -39,7 +39,7 @@ h3 {
 
 #Paragraph2:hover {
     transform: rotate(20deg);
-    text-shadow: 0px 3px 3px black, 0 0 25px #3305FD, 1px 0 3px #A1014C, 0 0 40px #5601A1;
+    text-shadow: 0px 3px 3px black, 0 0 25px #99cc99, 1px 0 3px #669999, 0 0 40px #ccffff;
     filter: blur(3px);
     color: white;
     transition: ease-in-out 0.2s;

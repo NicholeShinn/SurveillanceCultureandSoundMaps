@@ -10,10 +10,21 @@
 <!-- body captures everything in the website, so everything should be nested in the body tag. H1 is the first header declaration -->
 <body>
 
-<img src="PersonalPages/Images/boombox.gif">  
-<h1>I am asking you to listen.</h1> 
-<img src="PersonalPages/Images/boombox.gif">   
-    
+  <div class="title-row">
+  <img src="PersonalPagesImages/boombox.gif" alt="" class="title-gif">
+  <h1 class="site-title">I am asking you to listen.</h1>
+  <img src="PersonalPagesImages/boombox.gif" alt="" class="title-gif">
+</div>
+
+<div class="player">
+    <h2>Now Playing</h2>
+    <audio controls>
+      <source src="PersonalPages/PersonalPagesSounds/nicolkasounds/location 1 - park 10-4-2026.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  
 <!-- br is a line break for spacing and p is paragraph for text and hr is a horizontal line on the page -->
 <br>
 <h3> This place is located within the geographical boundaries of the region. There are many spaces like this, but this one is here. </h3>
@@ -23,7 +34,7 @@
 
 <!-- a div is a container, it is useful to categorize your elements. you can give it an id and a class which both reference to the css stylesheet -->
 <div id="pic01" class="imagediv">
-<img src="PersonalPages/Images/Britannia-High-1920.jpg" height=300px>
+<img src="PersonalPagesImages/Britannia-High-1920.jpg" height=300px>
 </div>
 <br>
 
@@ -38,11 +49,6 @@
 <br>
 
 <hr>
-<div id="pic02" class="imagediv">
-<img src="WorkshopImages/rain-leaves-frog.jpg" height=300px style="padding: 10px">
-<img src="WorkshopImages/rain-leaves-frog.jpg" height=300px style="padding: 10px">
-<img src="WorkshopImages/rain-leaves-frog.jpg" height=300px style="padding: 10px">
-</div>
 <br>
 <hr>
 <p style="text-align:center"><a href="https://www.wikipedia.org/">Wikipedia!</a></p>
@@ -62,61 +68,6 @@ Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapi
 <br>
 <hr>
 <!-- this is a div containing 3 divs inside of it. Via css it will align the 3 elements horizontally in a grid -->
-<div class="mycontainer">
-
-  <div style="background-color:#FFF4A3;">
-    <h2>London</h2>
-    <p>London is the capital city of England.</p>
-    <p>London has over 9 million inhabitants.</p>
-  </div>
-  
-  <div style="background-color:#FFC0C7;">
-    <h2>Oslo</h2>
-    <p>Oslo is the capital city of Norway.</p>
-    <p>Oslo has over 700,000 inhabitants.</p>
-  </div>
-  
-  <div style="background-color:#D9EEE1;">
-    <h2>Rome</h2>
-    <p>Rome is the capital city of Italy.</p>
-    <p>Rome has over 4 million inhabitants.</p>
-  </div>
-    
-   <div style="background-color:#FFF4A3;">
-    <h2>London</h2>
-    <p>London is the capital city of England.</p>
-    <p>London has over 9 million inhabitants.</p>
-  </div>
-  
-  <div style="background-color:#FFC0C7;">
-    <h2>Oslo</h2>
-    <p>Oslo is the capital city of Norway.</p>
-    <p>Oslo has over 700,000 inhabitants.</p>
-  </div>
-  
-  <div style="background-color:#D9EEE1;">
-    <h2>Rome</h2>
-    <p>Rome is the capital city of Italy.</p>
-    <p>Rome has over 4 million inhabitants.</p>
-  </div>
-    
-    <div style="background-color:#FFF4A3;">
-    <h2>London</h2>
-    <p>London is the capital city of England.</p>
-    <p>London has over 9 million inhabitants.</p>
-  </div>
-  
-  <div style="background-color:#FFC0C7;">
-    <h2>Oslo</h2>
-    <p>Oslo is the capital city of Norway.</p>
-    <p>Oslo has over 700,000 inhabitants.</p>
-  </div>
-  
-  <div style="background-color:#D9EEE1;">
-    <h2>Rome</h2>
-    <p>Rome is the capital city of Italy.</p>
-    <p>Rome has over 4 million inhabitants.</p>
-  </div>
 
 </div>
 <br>
