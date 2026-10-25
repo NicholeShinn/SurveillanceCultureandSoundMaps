@@ -87,6 +87,13 @@ h3 {
     filter: hue-rotate(200deg);
 }
 
+.handcursor {
+  background:gray;
+  width:150px;
+  height:200px;
+  cursor:url("PersonalImages/PersonalPagesImages/Liaimages/hand cursor small.png"), auto;
+}
+
 .subpagecontainer {
   display: grid;
   grid-template-columns: auto auto auto;
