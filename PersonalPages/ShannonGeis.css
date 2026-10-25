@@ -1,6 +1,12 @@
+@font-face {
+    font-family: Moonlight;
+    src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalFonts/Basteleur-Moonlight.otf") format("opentype");
+}
+
 body{
     background-color: #f2980A;
     margin: 0;
+    font-family: Moonlight, sans-serif;
 }
 
 #Title{
@@ -41,3 +47,9 @@ body{
   text-align: center;
   line-height: 2em;
 }
+
+#hoverpic:hover {
+    transform: scale(2.5) rotate(10deg) translate(0px, -20px);
+    filter: blur(3px);
+    transition: ease-in-out 0.5s;
+    }
