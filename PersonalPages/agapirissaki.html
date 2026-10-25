@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Mission Creek sound map by Agapi Rissaki. Clicking a red point opens a small window
+         on the map, next to the point, with the place's photo and sound. -->
+    <meta charset="utf-8">
+    <meta name="color-scheme" content="light">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mission Creek Sound Map</title>
+    <link href="agapirissaki.css" rel="stylesheet"/>
+</head>
+
+<body>
+<div id="page">
+
+<!-- ===================== THE MAP =====================
+     The points, names and notes are placed with left/top in PERCENT of the map,
+     so they stay in the right spot at any screen size. -->
+<figure>
+    <div id="map">
+        <img id="mapimage" src="PersonalPagesImages/agapi/map_with_river.png" alt="Map of the Mission District with the course of Mission Creek drawn as a dotted blue line">
+
+        <button class="spot" data-spot="twinpeaks" style="left: 41.3%; top: 16%;"><span>Twin Peaks</span></button>
+        <button class="spot" data-spot="dolores"   style="left: 53.8%; top: 38.2%;"><span>Mission Dolores Park</span></button>
+        <button class="spot" data-spot="valencia"  style="left: 52.5%; top: 45.1%;"><span>Valencia St</span></button>
+        <button class="spot" data-spot="channel"   style="left: 80.6%; top: 77.6%;"><span>Mission Creek Channel Park</span></button>
+
+        <!-- the names written on the map.
+             "left" = the name ends at that point, "right" = the name starts at that point. -->
+        <span class="maplabel left"  style="left: 39.6%; top: 15.7%;" aria-hidden="true">Twin Peaks</span>
+        <span class="maplabel right" style="left: 55.8%; top: 37.8%;" aria-hidden="true">Mission<br>Dolores Park</span>
+        <span class="maplabel left"  style="left: 64.4%; top: 45.5%;" aria-hidden="true">Valencia St</span>
+        <span class="maplabel left"  style="left: 92%; top: 74.6%;" aria-hidden="true">Mission Creek<br>Channel Park</span>
+
+        <!-- quieter notes on the map. --turn rotates the text. -->
+        <span class="mapnote water" style="left: 41.9%; top: 25.6%;" aria-hidden="true">Mission Creek<br>(underground)</span>
+        <span class="mapnote water" style="left: 48.8%; top: 56.7%;" aria-hidden="true">Mythical Laguna Dolores</span>
+        <span class="mapnote water" style="left: 87.5%; top: 80%; --turn: 47deg;" aria-hidden="true">open channel</span>
+        <span class="mapnote water bay" style="left: 62%; top: 97.5%;" aria-hidden="true">San Francisco Bay</span>
+        <span class="mapnote" style="left: 8%; top: 94%;" aria-hidden="true">N &rarr;</span>
+    </div>
+    <figcaption>Fig. 1. The course of Mission Creek, from Twin Peaks down to the bay, drawn over a street map. Click a red point to listen.</figcaption>
+</figure>
+
+<hr>
+
+<!-- the same four places as a plain list (also works for people who can't use the map) -->
+<div id="places">
+    Places:
+    <ol>
+        <li><button class="placelink" data-spot="twinpeaks">Twin Peaks</button></li>
+        <li><button class="placelink" data-spot="dolores">Mission Dolores Park</button></li>
+        <li><button class="placelink" data-spot="valencia">Valencia St</button></li>
+        <li><button class="placelink" data-spot="channel">Mission Creek Channel Park</button></li>
+    </ol>
+</div>
+
+<hr>
+
+<footer>
+    <p>By Agapi Rissaki &middot; Last updated 24 October 2026 &middot; <a href="https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/">&larr; Back to main page</a></p>
+
+    <!-- credits: one line for the sound, one for the map -->
+    <div id="credits">
+        <p>Creek sound: <a href="https://freesound.org/people/dhi67540/sounds/826658/">WATRFlow_FlowingaroundRocks_dhi67540_ZH1e</a> by <a href="https://freesound.org/people/dhi67540/">dhi67540</a>, license <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
+        <p>Base map: Map data &copy; Google, map styling by Snazzy Maps</p>
+    </div>
+</footer>
+
+</div>
+
+
+<!-- ===================== THE CONTENT FOR EACH PLACE =====================
+     This part is hidden. When a point is clicked, the matching block below is
+     copied into the window.
+       data-title  = the name shown at the top of the window
+       .collage    = the photo (one image)
+       .sound      = a normal audio player, same as on the class template -->
+<div id="spotcontent" hidden>
+
+    <div id="content-twinpeaks" data-title="Twin Peaks">
+        <div class="collage">
+            <img src="PersonalPagesImages/agapi/twin_peaks.jpg" alt="Photo of Twin Peaks">
+        </div>
+        <div class="sound">
+            <audio controls>
+                <source src="PersonalPagesSounds/agapi/01_twin_peaks_soundscape.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+
+    <div id="content-dolores" data-title="Mission Dolores Park">
+        <div class="collage">
+            <img src="PersonalPagesImages/agapi/dolores.jpg" alt="Photo of Mission Dolores Park">
+        </div>
+        <div class="sound">
+            <audio controls>
+                <source src="PersonalPagesSounds/agapi/02_dolores_soundscape.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+
+    <div id="content-valencia" data-title="Valencia St">
+        <div class="collage">
+            <img src="PersonalPagesImages/agapi/valencia.jpg" alt="Photo of Valencia St">
+        </div>
+        <div class="sound">
+            <audio controls>
+                <source src="PersonalPagesSounds/agapi/03_valencia_placeholder.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+
+    <div id="content-channel" data-title="Mission Creek Channel Park">
+        <div class="collage">
+            <img src="PersonalPagesImages/agapi/channel.jpg" alt="Photo of Mission Creek Channel Park">
+        </div>
+        <div class="sound">
+            <audio controls>
+                <source src="PersonalPagesSounds/agapi/04_channel_placeholder.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- ===================== THE WINDOW ===================== -->
+<div id="popup" hidden>
+    <div id="popupwindow" role="dialog" aria-labelledby="windowtitle">
+        <!-- title bar with the place name and the close box -->
+        <div id="titlebar">
+            <span id="windowtitle"></span>
+            <button id="closebutton" aria-label="Close">&times;</button>
+        </div>
+
+        <!-- the photo with the audio player underneath -->
+        <div id="windowbody">
+            <div id="collagebox"></div>
+            <div id="player"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ===================== THE CODE ===================== -->
+<script>
+// Mission Creek sound map: opens a small window next to a red point when it is clicked.
+
+const map = document.getElementById('map');
+const popup = document.getElementById('popup');
+const popupWindow = document.getElementById('popupwindow');
+const collageBox = document.getElementById('collagebox');
+const player = document.getElementById('player');
+const closeButton = document.getElementById('closebutton');
+const windowTitle = document.getElementById('windowtitle');
+
+map.appendChild(popup);   // the window lives inside the map, so it scrolls along with it
+
+function openSpot(name) {
+    const content = document.getElementById('content-' + name);
+
+    windowTitle.textContent = content.dataset.title;
+    collageBox.innerHTML = content.querySelector('.collage').innerHTML;
+    player.innerHTML = content.querySelector('.sound').innerHTML;
+
+    popup.hidden = false;
+    closeButton.focus({ preventScroll: true });
+}
+
+function closePopup() {
+    // stop the sound so it doesn't keep playing after the window is closed
+    const audio = player.querySelector('audio');
+    if (audio) audio.pause();
+
+    popup.hidden = true;
+    if (lastClickedSpot) lastClickedSpot.focus({ preventScroll: true });
+}
+
+let lastClickedSpot = null;
+
+// the red points on the map and the place names in the list both open the window
+document.querySelectorAll('.spot, .placelink').forEach(function (spot) {
+    spot.addEventListener('click', function () {
+        lastClickedSpot = spot;
+        openSpot(spot.dataset.spot);
+        placeWindow(spot.dataset.spot);
+    });
+});
+
+closeButton.addEventListener('click', closePopup);
+
+// clicking anywhere outside the window (except on another point) closes it
+document.addEventListener('click', function (event) {
+    if (popup.hidden) return;
+    if (popupWindow.contains(event.target)) return;
+    if (event.target.closest('.spot, .placelink')) return;
+    closePopup();
+});
+
+document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && !popup.hidden) closePopup();
+});
+
+
+// ---------- placing the window next to the point that was clicked ----------
+
+let currentSpot = null;
+
+function placeWindow(name) {
+    currentSpot = name;
+    const dot = map.querySelector('.spot[data-spot="' + name + '"]');
+    const gap = 24;                       // space between the point and the window
+    const mapWidth = map.offsetWidth;
+    const mapHeight = map.offsetHeight;
+    const width = popupWindow.offsetWidth;
+    const height = popupWindow.offsetHeight;
+    const x = dot.offsetLeft;             // the center of the point
+    const y = dot.offsetTop;
+    let left, top, origin;
+
+    const roomRight = mapWidth - x - gap >= width;
+    const roomLeft = x - gap >= width;
+
+    if (roomRight && (x < mapWidth / 2 || !roomLeft)) {
+        // to the right of the point
+        left = x + gap;
+        top = y - height / 2;
+        origin = 'left center';
+    } else if (roomLeft) {
+        // to the left of the point
+        left = x - gap - width;
+        top = y - height / 2;
+        origin = 'right center';
+    } else if (y + gap + height <= mapHeight) {
+        // no room on either side (phones): under the point
+        left = (mapWidth - width) / 2;
+        top = y + gap;
+        origin = 'center top';
+    } else {
+        // ... or above it
+        left = (mapWidth - width) / 2;
+        top = y - gap - height;
+        origin = 'center bottom';
+    }
+
+    // keep the whole window on the map
+    top = Math.min(Math.max(top, 0), mapHeight - height);
+    left = Math.min(Math.max(left, 0), mapWidth - width);
+
+    popupWindow.style.left = left + 'px';
+    popupWindow.style.top = top + 'px';
+    popupWindow.style.transformOrigin = origin;
+
+    // play the pop-in again when the window moves to another point
+    popupWindow.style.animation = 'none';
+    void popupWindow.offsetWidth;
+    popupWindow.style.animation = '';
+
+    // if part of the window is off the screen (e.g. opened from the list of places), scroll to it
+    popupWindow.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+}
+
+// when the window is resized, the map changes size, so move the window back next to its point
+window.addEventListener('resize', function () {
+    if (!popup.hidden && currentSpot) placeWindow(currentSpot);
+});
+</script>
+</body>
+</html>
