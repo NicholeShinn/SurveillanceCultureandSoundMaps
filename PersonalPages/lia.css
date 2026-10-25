@@ -88,10 +88,9 @@ h3 {
 }
 
 .handcursor {
-  background:gray;
   width:150px;
   height:200px;
-  cursor:url("PersonalImages/PersonalPagesImages/Liaimages/hand cursor small.png"), auto;
+  cursor:url("PersonalPages/PersonalPagesImages/Liaimages/hand cursor small.png"), auto;
 }
 
 .subpagecontainer {
