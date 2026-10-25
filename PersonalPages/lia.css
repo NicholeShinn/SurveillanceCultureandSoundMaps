@@ -1,11 +1,11 @@
 @font-face {
     font-family: Moonlight;
-    src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalFonts/Basteleur-Moonlight.otf") format("opentype");
+    src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalFonts/digital-clock.otf") format("opentype");
 }
 
 
 body{
-    background-image: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalPagesImages/Liaimages/screenshottempbg.png");
+    background-image: url(https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalPagesImages/Liaimages/screenshottempbg.png);
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
