@@ -51,3 +51,9 @@ body{
     transform: scale(2.5) rotate(10deg) translate(0px, -20px);
     transition: ease-in-out 0.5s;
     }
+
+
+#hoverpicback:hover {
+    transform: scale(2.5) rotate(-10deg) translate(0px, -20px);
+    transition: ease-in-out 0.5s;
+    }
