@@ -14,6 +14,12 @@ body{
     background-color: #ffff;
 }
 
+.handcursor {
+  width:95px;
+  height:127px;
+  cursor:url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalPagesImages/Liaimages/hand cursor small.png") 10 3, auto;
+}
+
 h3 {
     font-family: 'Moonlight', Arial, sans-serif;
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
@@ -87,11 +93,7 @@ h3 {
     filter: hue-rotate(200deg);
 }
 
-.handcursor {
-  width:95px;
-  height:127px;
-  cursor:url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalPagesImages/Liaimages/hand cursor small.png") 10 3, auto;
-}
+
 
 .subpagecontainer {
   display: grid;
