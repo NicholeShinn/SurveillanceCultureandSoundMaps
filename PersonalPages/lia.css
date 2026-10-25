@@ -12,6 +12,13 @@ body{
     background-size: cover;
     margin: 20px;
     background-color: #ffff;
+    cursor: none;
+}
+
+.handcursor {
+  width:95px;
+  height:127px;
+  cursor:url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalPagesImages/Liaimages/hand cursor small.png") 10 3, auto;
 }
 
 h3 {
@@ -87,11 +94,7 @@ h3 {
     filter: hue-rotate(200deg);
 }
 
-.handcursor {
-  width:95px;
-  height:127px;
-  cursor:url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalPagesImages/Liaimages/hand cursor small.png") 10 3, auto;
-}
+
 
 .subpagecontainer {
   display: grid;
