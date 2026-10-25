@@ -5,23 +5,27 @@
 
 
 body{
-    background-color: #f700ff;
+    background-color: #e23535;
     margin: 0;
 }
 
 h3 {
     font-family: 'Moonlight', Arial, sans-serif;
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
     text-align: center;
 }
 
 #Title{
+    font-size: 60px;
+    color:dimgrey;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 #Paragraph1{
+    font-style: oblique;
+    font-size: 20px;
     padding: 40px;
     margin: 10px;
     display: flex;
@@ -35,14 +39,6 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-#Paragraph2:hover {
-    transform: rotate(20deg);
-    text-shadow: 0px 3px 3px black, 0 0 25px #3305FD, 1px 0 3px #A1014C, 0 0 40px #5601A1;
-    filter: blur(3px);
-    color: white;
-    transition: ease-in-out 0.2s;
 }
 
 #audio1{    
@@ -64,32 +60,23 @@ h3 {
 
 #pic03 {
     filter: drop-shadow(10px 10px 10px black);
+    border-radius: 50%;
     opacity: 0.5;
 }
 
 #pic04 {
     filter: drop-shadow(10px 10px 10px black);
+    border-radius: 50%;
     filter: brightness(150%);
-}
-
-#pic05 {
-    filter: drop-shadow(10px 10px 10px black);
-    filter: grayscale(60%);
-}
-
-#pic06 {
-    filter: drop-shadow(10px 10px 10px black);
-    filter: hue-rotate(200deg);
 }
 
 .subpagecontainer {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto;
   column-gap: 20px;
   row-gap: 2px;
   padding: 5%;
   margin: auto;
-  background-image: url(https://img1.picmix.com/output/stamp/normal/9/8/1/4/644189_976b8.gif);
   background-repeat: repeat;
   justify-content: center;
   justify-items: center;
@@ -109,11 +96,11 @@ h3 {
     0% {
         background-color: red;}
     25% {
-        background-color: yellow;}
+        background-color: black;}
     50% {
-        background-color: blue;}
+        background-color: red;}
     75% {
-        background-color: green;}
+        background-color: black;}
     100% {
         background-color: red;}
 }
@@ -140,37 +127,10 @@ h3 {
 }
 
 #hoverpic:hover {
-    transform: scale(2.5) rotate(10deg) translate(0px, -20px);
+    transform: scale(1.1) rotate(75deg) translate(0px, -20px);
     filter: blur(3px);
-    transition: ease-in-out 0.5s;
+    transition: ease-in-out 1s;
     }
 
-#animatedpic {
-    padding: 40px;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    position: relative;
-    animation-name: animatedpicture;
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
-}
 
-@keyframes animatedpicture {
-    0% {
-        left: 0px;
-        top: 0px;}
-    50% {
-        left: 0px;
-        top: 200px;
-        transform: scale(0.5, 0.5);}
-    75% {
-        left: 0px;
-        top: 200px;
-        transform: scale(-1, -1);}
-    100% {
-        left: 0px;
-        top: 0px;}
-}

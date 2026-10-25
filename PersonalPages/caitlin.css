@@ -5,13 +5,13 @@
 
 
 body{
-    background-color: #f700ff;
+    background-color: #82A194;
     margin: 0;
 }
 
 h3 {
     font-family: 'Moonlight', Arial, sans-serif;
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #69857A, 0 0 40px #556B5F, 0 0 50px #44574B, 0 0 60px #2D3B32, 0 0 70px #A8BFB2;
     text-align: center;
 }
 

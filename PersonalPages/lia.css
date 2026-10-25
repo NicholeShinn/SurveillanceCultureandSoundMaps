@@ -1,12 +1,23 @@
 @font-face {
-    font-family: Moonlight;
-    src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalFonts/Basteleur-Moonlight.otf") format("opentype");
+    font-family: digital-clock;
+    src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalFonts/digital-clock.otf") format("opentype");
 }
 
 
 body{
-    background-color: #f700ff;
-    margin: 0;
+    background-image: url(PersonalPages/PersonalPagesImages/Liaimages/screenshottempbg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #ffff;
+    cursor: none;
+}
+
+.handcursor {
+  width:95px;
+  height:127px;
+  cursor:url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalPagesImages/Liaimages/hand cursor small.png") 10 3, auto;
 }
 
 h3 {
@@ -81,6 +92,8 @@ h3 {
     filter: drop-shadow(10px 10px 10px black);
     filter: hue-rotate(200deg);
 }
+
+
 
 .subpagecontainer {
   display: grid;
