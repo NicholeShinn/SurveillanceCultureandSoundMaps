@@ -1,14 +1,14 @@
-/* Mission Creek sound map by Agapi Rissaki.
+/* Mission Creek sound map by Agapi Rissaki. PASTEL version (map: images/map_with_river_pastel.png).
    One font (Times), black on light gray, default blue/purple links,
    spacing in steps of 8px (8 / 16 / 32). */
 
 html {
     color-scheme: light;       /* stops browsers from switching the page to dark mode */
-    background-color: #f3f4f4; /* the same light gray as the map, so the map blends into the page */
+    background-color: #f6e3d3; /* the same peach as the map, so the map blends into the page */
 }
 
 body {
-    background-color: #f3f4f4;
+    background-color: #f6e3d3;
     color: #000000;
     margin: 0;
     font-family: 'Times New Roman', Times, serif;
@@ -115,13 +115,13 @@ figcaption {
 }
 
 /* the names written on the map. No background; a faint gray glow behind the letters
-   (same gray as the map) keeps them readable over the streets. */
+   (same peach as the map) keeps them readable over the streets. */
 .maplabel,
 .mapnote {
     position: absolute;
     white-space: nowrap;
     line-height: 1.2;
-    text-shadow: 0 0 3px #f3f4f4, 0 0 3px #f3f4f4, 0 0 6px #f3f4f4;
+    text-shadow: 0 0 3px #f6e3d3, 0 0 3px #f6e3d3, 0 0 6px #f6e3d3;
     pointer-events: none;      /* clicks go through to the map */
 }
 
@@ -146,7 +146,7 @@ figcaption {
 }
 
 .mapnote.water {
-    color: #1d6796;
+    color: #2438c4;              /* cobalt, like the river and the bay */
     text-shadow: none;
 }
 
@@ -221,9 +221,9 @@ footer p {
     flex-direction: column;
     width: 340px;
     height: 440px;
-    background-color: #ffffff;
-    border: 1px solid #000000;
-    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25);   /* a flat offset shadow so it sits on top of the map */
+    background-color: #fff4ea;                   /* the light cream of the map's streets */
+    border: 2px solid #2438c4;                   /* cobalt, like the river */
+    box-shadow: 6px 6px 0 #ff7a45;               /* a flat offset shadow in the roads' orange, like a print */
     pointer-events: auto;
     animation: popin 0.2s ease-out;
 }
@@ -234,34 +234,42 @@ footer p {
     to   { transform: none; opacity: 1; }
 }
 
-/* title bar with the place name and the close box */
+/* title bar: a cobalt strip with the place name in cream */
 #titlebar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 4px 8px;
+    background-color: #2438c4;
+    color: #fff4ea;
 }
 
 #windowtitle {
-    font-weight: bold;
     font-size: 16px;
+    font-style: italic;
+    letter-spacing: 0.04em;
 }
 
 #closebutton {
     width: 24px;
     height: 22px;
     padding: 0;
-    background-color: #ffffff;
-    border: 1px solid #000000;
+    background: none;
+    border: 1px solid #fff4ea;
+    color: #fff4ea;
     font-family: 'Times New Roman', Times, serif;
     font-size: 16px;
     line-height: 1;
     cursor: pointer;
 }
 
+#closebutton:hover {
+    background-color: #ff7a45;
+}
+
 #closebutton:active {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #fff4ea;
+    color: #2438c4;
 }
 
 /* the photo with the audio player underneath */
