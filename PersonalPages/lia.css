@@ -5,14 +5,13 @@
 
 
 body{
-    background-image: url("PersonalImages/PersonalPagesImages/Liaimages/screenshottempbg.png");
+    background-image: url("PersonalPages/PersonalPagesImages/Liaimages/screenshottempbg.png");
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
     margin: 20px;
     background-color: #ffff;
-    margin: 0;
 }
 
 h3 {
