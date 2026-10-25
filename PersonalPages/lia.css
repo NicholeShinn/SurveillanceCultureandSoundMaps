@@ -18,7 +18,6 @@ body{
 .handcursor {
   width:95px;
   height:127px;
-  position: absolute;
   cursor:url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalPagesImages/Liaimages/hand cursor small.png") 10 3, auto;
 }
 
