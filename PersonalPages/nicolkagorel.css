@@ -63,13 +63,6 @@ p{
   gap: 24px;                   /* space between gifs and title */
 }
 
-.site-title {
-  position: static;            /* remove the old absolute positioning */
-  transform: none;
-  margin: 0;
-  font-size: 4rem;
-}
-
 .title-gif {
   height: 80px;                /* adjust to taste */
   width: auto;
