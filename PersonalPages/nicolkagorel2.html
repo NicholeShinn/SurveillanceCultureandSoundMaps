@@ -1,82 +1,255 @@
-<!-- Every html document should start with doctype declaration -->
 <!DOCTYPE html>
-<html lang="en">
-<!-- The head information is reference for your organization, it does not appear on the website. This is where you link your css stylesheet. -->
+<html>
 <head>
-    <title>Page Template</title>
-    <link href="nicolkagorel.css" rel="stylesheet" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0895f46f-15f9-4eaf-a83d-a776e7be241b/d37su50-f0765647-2899-4d21-a5b8-87bbc9887c5c.png/v1/fill/w_1600,h_2071,q_80,strp/notebook_paper_plain_by_fairyfindings_d37su50-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjA3MSIsInBhdGgiOiIvZi8wODk1ZjQ2Zi0xNWY5LTRlYWYtYTgzZC1hNzc2ZTdiZTI0MWIvZDM3c3U1MC1mMDc2NTY0Ny0yODk5LTRkMjEtYTViOC04N2JiYzk4ODdjNWMucG5nIiwid2lkdGgiOiI8PTE2MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.7j0XCXOmN7PDHkv7E1as8ZAJLB9-n28mUhFWKISBGB4");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  }
+
+.subpagecontainer {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 20px;
+  row-gap: 2px;
+  padding: 20px 5% 0 5%;
+  margin: auto;
+  background-image: url();
+  background-repeat: repeat;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.subpagecontainer div {
+  padding: 5px;
+  margin: auto;
+  text-align: center;
+  line-height: 1em;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.subpagecontainer2 {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 20px;
+  row-gap: 2px;
+  padding: 0 5% 20px 5%;
+  margin: auto;
+  background-image: url();
+  background-repeat: repeat;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.subpagecontainer2 div {
+  padding: 5px;
+  margin: auto;
+  text-align: center;
+  line-height: 1em;
+  justify-content: center;
+  align-items: center;
+}
+
+audio {
+  margin-top: 20px;
+}
+
+#Title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+  text-align: center;
+  width:1000px;
+  margin: 0 auto;
+}
+
+.map {
+  width: 500px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.blur-image {
+  filter: blur(15px) opacity(50%); 
+ transition: filter 0.8s ease; 
+}
+
+.blur-image:hover {
+ filter: blur(0px) ; 
+}
+
+.custom-cursor {
+  width: 80px;
+  height: 80px;
+  background-image: url("images/black bird.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: fixed; /* Ensures it stays relative to the viewport */
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%); /* Centers the element perfectly on the pointer */
+  pointer-events: none; /* Crucial: stops the cursor from blocking clicks underneath */
+  transition: transform 0.2s ease; /* Smooth scaling animations */
+  z-index: 9999; /* Keeps it on top of all other elements */
+  transition: left 0.3s ease-out, top 0.3s ease-out, transform 0.2s ease;
+  
+}
+
+/* An animation class to add on hover */
+.custom-cursor.grow {
+  transform: translate(-50%, -50%) scale(2);
+}
+
+
+</style>
+
+
+
 </head>
 
-<!-- body captures everything in the website, so everything should be nested in the body tag. H1 is the first header declaration -->
 <body>
+<div id="Title">
+<h1>I am asking you to listen.</h1>
+</div> 
 
-  <div class="title-row">
-  <img src="PersonalPagesImages/boombox.gif" alt="" class="title-gif">
-  <h1 class="site-title">I am asking you to listen.</h1>
-  <img src="PersonalPagesImages/boombox.gif" alt="" class="title-gif">
+<img class="map" src="images/map.png" alt="a hand drawn map">
+
+<div class="subpagecontainer">
+
+<div id="Location1">
+<h3>Location 1</h3>
+<br>
+ Salsbury Park
+<br>
+ 49.277154, -123.067704
+<br>
+<img src="images/salsbury.png" alt="Salsbury Park" height="300" class="blur-image">
+<br>
+<audio controls>
+<source src="sounds/Salsbury soundscape.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<br>
+<br>
+<iframe src="https://www.google.com/maps/embed?pb=!4v1792616556249!6m8!1m7!1s86e5aNU2buVQOI8Ab1oaVQ!2m2!1d49.27709321025264!2d-123.067731916758!3f336.1214744075205!4f-4.0581871527715805!5f0.7820865974627469" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<br>
+
 </div>
 
-<!-- br is a line break for spacing and p is paragraph for text and hr is a horizontal line on the page -->
+<div id="Location2">
+<h3>Location 2</h3>
 <br>
-<h3> This place is located within the geographical boundaries of the region. There are many spaces like this, but this one is here. </h3>
+Woodland Park 
 <br>
-<hr>
+ 49.278506, -123.073367
+<br>
+<img src="images/woodland.png" alt="Woodland Park" height="300" class="blur-image">
+<br>
+<audio controls>
+<source src="sounds/woodland soundscape.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<br>
+<br>
+<iframe src="https://www.google.com/maps/embed?pb=!4v1792616773631!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJRDB4LW54YkE.!2m2!1d49.27848100805202!2d-123.0732219408069!3f241.1230076624454!4f-0.6032380953504912!5f0.7820865974627469" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<br>
 
-
-<!-- a div is a container, it is useful to categorize your elements. you can give it an id and a class which both reference to the css stylesheet -->
-<div id="pic01" class="imagediv">
-<img src="PersonalPagesImages/Britannia-High-1920.jpg" height=300px>
 </div>
-<br>
 
-<!-- you can declare css styling in the tags themselves, this here centers the text -->
-<p style="text-align:center;"><b>I don't have much to do with this area.</b> but I understand that those I care for do. <i> It can be be difficult to understand where you fit into a world much more complicated than yourself.</i> 
+<div id="Location3">
+<h3>Location 3</h3>
 <br> 
-<small>You can't really get outside of yourself or your own relations to everything</small> 
-<sub>thats</sub><sup>what.</sup><sub>i've</sub> <sup>heard.</sup> </p> 
+Grandview Park 
+<br>
+ 49.273513, -123.069836
+<br>
+<img src="images/grandview.png" alt="Grandview Park" height= "300" class="blur-image">
+<br>
+<audio controls>
+<source src="sounds/Grandview soundscape.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
 <br>
 <br>
-<hr>
-<br>
-
-<div class="player">
-    <h2>Now Playing</h2>
-    <audio controls>
-      <source src="PersonalPages/PersonalPagesSounds/nicolkasounds/location 1 - park 10-4-2026.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-  </div>
-
-<hr>
-<br>
-<hr>
-<p style="text-align:center"><a href="https://www.wikipedia.org/">Wikipedia!</a></p>
-<br>
-<hr>
-<div id="lorem" class="bodytext">
-Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-<br>
-<br>
-Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-<br>
-<br>
-Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-<br>
+<iframe src="https://www.google.com/maps/embed?pb=!4v1792617274534!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJQ3YyNkR4X1FF!2m2!1d49.27354689848035!2d-123.0698527129929!3f152.99705382439785!4f-26.14186970752349!5f0.7820865974627469" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 <br>
 </div>
-<br>
-<hr>
-<!-- this is a div containing 3 divs inside of it. Via css it will align the 3 elements horizontally in a grid -->
 
 </div>
+
+
+<div class="subpagecontainer2">
+
+<div id="Location4">
+<h3>Location 4</h3>
+<br> 
+Britannia Courts Soundscape
 <br>
-<hr>
-<!-- I pulled the embed option from youtube and pasted it here for youtube video via IFrame -->
-<div id="youtubevideo" class="imagediv">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/GN-o_Z9q5Mw?si=iNU2KLHJTYRh9kXz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+ 49.275951, -123.073626
+<br>
+<img src="images/britannia.png" alt="Britannia Courts" height="300" class="blur-image">
+<br>
+<audio controls>
+<source src="sounds/britannia soundscape.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<br>
+<br>
+<iframe src="https://www.google.com/maps/embed?pb=!4v1792617746247!6m8!1m7!1sCAoSHENJQUJJaEJSRGsydHNqYnZpSkpZcHJITGtMc1A.!2m2!1d49.2759571808653!2d-123.0733050608892!3f263.4089837623675!4f-1.1563873709859394!5f0.7820865974627469" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<br>
 </div>
+
+<div id="Location5">
+<h3>Location 5</h3>
+<br>
+Napier Street Pass Soundscape
+<br>
+49.274860, -123.069796
+<br>
+<img src="images/napier.png" alt="Napier Street Pass" height ="300" class="blur-image">
+<br>
+<audio controls>
+<source src="sounds/napier audioscape.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<br>
+<br>
+<iframe src="https://www.google.com/maps/embed?pb=!4v1792617879812!6m8!1m7!1syeCZDn20LVSPF_ac3YWmQw!2m2!1d49.2748614560222!2d-123.0698526184648!3f201.73288041659748!4f-14.968904080840332!5f1.489515704675565" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<br>
+</div>
+</div>
+
+<p>
+I am asking you to listen is a sound mapping project created in East Vancouver, BC. It is a series of recordings: auditory, internal, verbal, photographic. 
+</p>
+<br>
+<br>
+
+<div class="custom-cursor"> 
+</div>
+
+<script>
+  const cursor = document.querySelector('.custom-cursor');
+
+  document.addEventListener('mousemove', function(event) {
+    cursor.style.left = event.clientX + 'px';
+    cursor.style.top = event.clientY + 'px';
+  });
+</script>
+
 </body>
-
-<!-- 
-This is a page template for the class fall 2026
--->
+</html>
