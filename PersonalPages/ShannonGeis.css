@@ -1,6 +1,12 @@
+@font-face {
+    font-family: Moonlight;
+    src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalFonts/FuturaRenner-Regular.otf") format("opentype");
+}
+
 body{
     background-color: #f2980A;
     margin: 0;
+    font-family: Moonlight, sans-serif;
 }
 
 #Title{
@@ -30,7 +36,6 @@ body{
   row-gap: 2px;
   padding: 5%;
   margin: auto;
-  background-image: ('https://img1.picmix.com/output/stamp/normal/9/8/1/4/644189_976b8.gif');
   justify-content: center;
   align-items: center;
 }
@@ -41,3 +46,14 @@ body{
   text-align: center;
   line-height: 2em;
 }
+
+#hoverpic:hover {
+    transform: scale(2.5) rotate(10deg) translate(0px, -20px);
+    transition: ease-in-out 0.5s;
+    }
+
+
+#hoverpicback:hover {
+    transform: scale(2.5) rotate(-10deg) translate(0px, -20px);
+    transition: ease-in-out 0.5s;
+    }

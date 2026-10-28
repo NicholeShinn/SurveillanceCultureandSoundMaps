@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0895f46f-15f9-4eaf-a83d-a776e7be241b/d37su50-f0765647-2899-4d21-a5b8-87bbc9887c5c.png/v1/fill/w_1600,h_2071,q_80,strp/notebook_paper_plain_by_fairyfindings_d37su50-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjA3MSIsInBhdGgiOiIvZi8wODk1ZjQ2Zi0xNWY5LTRlYWYtYTgzZC1hNzc2ZTdiZTI0MWIvZDM3c3U1MC1mMDc2NTY0Ny0yODk5LTRkMjEtYTViOC04N2JiYzk4ODdjNWMucG5nIiwid2lkdGgiOiI8PTE2MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.7j0XCXOmN7PDHkv7E1as8ZAJLB9-n28mUhFWKISBGB4");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  }
+
+.subpagecontainer {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 20px;
+  row-gap: 2px;
+  padding: 20px 5% 0 5%;
+  margin: auto;
+  background-image: url();
+  background-repeat: repeat;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.subpagecontainer div {
+  padding: 5px;
+  margin: auto;
+  text-align: center;
+  line-height: 1em;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.subpagecontainer2 {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 20px;
+  row-gap: 2px;
+  padding: 0 5% 20px 5%;
+  margin: auto;
+  background-image: url();
+  background-repeat: repeat;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.subpagecontainer2 div {
+  padding: 5px;
+  margin: auto;
+  text-align: center;
+  line-height: 1em;
+  justify-content: center;
+  align-items: center;
+}
+
+audio {
+  margin-top: 20px;
+}
+
+#Title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+  text-align: center;
+  width:1000px;
+  margin: 0 auto;
+}
+
+.map {
+  width: 500px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.blur-image {
+  filter: blur(15px) opacity(50%); 
+ transition: filter 0.8s ease; 
+}
+
+.blur-image:hover {
+ filter: blur(0px) ; 
+}
+
+.custom-cursor {
+  width: 80px;
+  height: 80px;
+  background-image: url("images/black bird.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: fixed; /* Ensures it stays relative to the viewport */
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%); /* Centers the element perfectly on the pointer */
+  pointer-events: none; /* Crucial: stops the cursor from blocking clicks underneath */
+  transition: transform 0.2s ease; /* Smooth scaling animations */
+  z-index: 9999; /* Keeps it on top of all other elements */
+  transition: left 0.3s ease-out, top 0.3s ease-out, transform 0.2s ease;
+  
+}
+
+/* An animation class to add on hover */
+.custom-cursor.grow {
+  transform: translate(-50%, -50%) scale(2);
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+<div id="Title">
+<h1>I am asking you to listen.</h1>
+</div> 
+
+<img class="map" src="images/map.png" alt="a hand drawn map">
+
+<div class="subpagecontainer">
+
+<div id="Location1">
+<h3>Location 1</h3>
+<br>
+ Salsbury Park
+<br>
+ 49.277154, -123.067704
+<br>
+<img src="images/salsbury.png" alt="Salsbury Park" height="300" class="blur-image">
+<br>
+<audio controls>
+<source src="sounds/Salsbury soundscape.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<br>
+<br>
+<iframe src="https://www.google.com/maps/embed?pb=!4v1792616556249!6m8!1m7!1s86e5aNU2buVQOI8Ab1oaVQ!2m2!1d49.27709321025264!2d-123.067731916758!3f336.1214744075205!4f-4.0581871527715805!5f0.7820865974627469" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<br>
+
+</div>
+
+<div id="Location2">
+<h3>Location 2</h3>
+<br>
+Woodland Park 
+<br>
+ 49.278506, -123.073367
+<br>
+<img src="images/woodland.png" alt="Woodland Park" height="300" class="blur-image">
+<br>
+<audio controls>
+<source src="sounds/woodland soundscape.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<br>
+<br>
+<iframe src="https://www.google.com/maps/embed?pb=!4v1792616773631!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJRDB4LW54YkE.!2m2!1d49.27848100805202!2d-123.0732219408069!3f241.1230076624454!4f-0.6032380953504912!5f0.7820865974627469" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<br>
+
+</div>
+
+<div id="Location3">
+<h3>Location 3</h3>
+<br> 
+Grandview Park 
+<br>
+ 49.273513, -123.069836
+<br>
+<img src="images/grandview.png" alt="Grandview Park" height= "300" class="blur-image">
+<br>
+<audio controls>
+<source src="sounds/Grandview soundscape.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<br>
+<br>
+<iframe src="https://www.google.com/maps/embed?pb=!4v1792617274534!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJQ3YyNkR4X1FF!2m2!1d49.27354689848035!2d-123.0698527129929!3f152.99705382439785!4f-26.14186970752349!5f0.7820865974627469" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<br>
+</div>
+
+</div>
+
+
+<div class="subpagecontainer2">
+
+<div id="Location4">
+<h3>Location 4</h3>
+<br> 
+Britannia Courts Soundscape
+<br>
+ 49.275951, -123.073626
+<br>
+<img src="images/britannia.png" alt="Britannia Courts" height="300" class="blur-image">
+<br>
+<audio controls>
+<source src="sounds/britannia soundscape.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<br>
+<br>
+<iframe src="https://www.google.com/maps/embed?pb=!4v1792617746247!6m8!1m7!1sCAoSHENJQUJJaEJSRGsydHNqYnZpSkpZcHJITGtMc1A.!2m2!1d49.2759571808653!2d-123.0733050608892!3f263.4089837623675!4f-1.1563873709859394!5f0.7820865974627469" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<br>
+</div>
+
+<div id="Location5">
+<h3>Location 5</h3>
+<br>
+Napier Street Pass Soundscape
+<br>
+49.274860, -123.069796
+<br>
+<img src="images/napier.png" alt="Napier Street Pass" height ="300" class="blur-image">
+<br>
+<audio controls>
+<source src="sounds/napier audioscape.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<br>
+<br>
+<iframe src="https://www.google.com/maps/embed?pb=!4v1792617879812!6m8!1m7!1syeCZDn20LVSPF_ac3YWmQw!2m2!1d49.2748614560222!2d-123.0698526184648!3f201.73288041659748!4f-14.968904080840332!5f1.489515704675565" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<br>
+</div>
+</div>
+
+<p>
+I am asking you to listen is a sound mapping project created in East Vancouver, BC. It is a series of recordings: auditory, internal, verbal, photographic. 
+</p>
+<br>
+<br>
+
+<div class="custom-cursor"> 
+</div>
+
+<script>
+  const cursor = document.querySelector('.custom-cursor');
+
+  document.addEventListener('mousemove', function(event) {
+    cursor.style.left = event.clientX + 'px';
+    cursor.style.top = event.clientY + 'px';
+  });
+</script>
+
+</body>
+</html>

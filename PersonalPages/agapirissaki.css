@@ -1,0 +1,334 @@
+/* Mission Creek sound map by Agapi Rissaki. PASTEL version (map: images/map_with_river_pastel.png).
+   One font (Times), black on light gray, default blue/purple links,
+   spacing in steps of 8px (8 / 16 / 32). */
+
+html {
+    color-scheme: light;       /* stops browsers from switching the page to dark mode */
+    background-color: #f6e3d3; /* the same peach as the map, so the map blends into the page */
+}
+
+body {
+    background-color: #f6e3d3;
+    color: #000000;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    line-height: 1.45;
+}
+
+a { color: #0000ee; }
+a:visited { color: #551a8b; }
+a:hover { background-color: #ffff99; }
+
+/* one fixed-width column, like an old home page */
+#page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 16px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #000000;
+    margin: 32px 0;
+}
+
+
+/* ===================== MAP ===================== */
+
+figure {
+    margin: 0;
+}
+
+figcaption {
+    font-size: 15px;
+    font-style: italic;
+    margin-top: 8px;
+}
+
+#map {
+    position: relative;        /* the points, names and window are placed relative to this box */
+}
+
+/* the map fills the whole column width; the page scrolls if it's taller than the window */
+#mapimage {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* the points: a soft red dot (see-through, so the map shows under it) with a ring that slowly pulses out */
+.spot {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: rgba(224, 32, 27, 0.75);
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 6px 2px rgba(224, 32, 27, 0.35);
+    cursor: pointer;
+    transform: translate(-50%, -50%);   /* centers the point on its left/top position */
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+/* the pulsing ring */
+.spot::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    border: 2px solid #e0201b;
+    animation: pulse 2.4s ease-out infinite;
+    pointer-events: none;
+}
+
+/* a bigger invisible area around the dot, so it's easy to click */
+.spot::before {
+    content: "";
+    position: absolute;
+    inset: -10px;
+    border-radius: 50%;
+}
+
+@keyframes pulse {
+    from { transform: scale(1);   opacity: 0.7; }
+    to   { transform: scale(2.6); opacity: 0; }
+}
+
+.spot:hover,
+.spot:focus-visible {
+    transform: translate(-50%, -50%) scale(1.4);
+    background-color: #e0201b;
+    z-index: 2;
+}
+
+/* the name inside each point: hidden, since the names are written on the map,
+   but still read out by screen readers */
+.spot span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+/* the names written on the map. No background; a faint gray glow behind the letters
+   (same peach as the map) keeps them readable over the streets. */
+.maplabel,
+.mapnote {
+    position: absolute;
+    white-space: nowrap;
+    line-height: 1.2;
+    text-shadow: 0 0 3px #f6e3d3, 0 0 3px #f6e3d3, 0 0 6px #f6e3d3;
+    pointer-events: none;      /* clicks go through to the map */
+}
+
+.maplabel {
+    font-size: 16px;
+    padding: 0 6px;
+    text-align: center;        /* two-line names are centered on each other */
+}
+
+.maplabel.left  { transform: translate(-100%, -50%); }
+.maplabel.right { transform: translate(0, -50%); }
+
+/* the quieter notes on the map (the bay, the creek, north): italic, smaller, in muted colors.
+   Each one is centered on its left/top point; --turn rotates it (e.g. to run along the creek). */
+.mapnote {
+    font-size: 13px;
+    font-style: italic;
+    letter-spacing: 0.08em;
+    color: #6b6f72;
+    text-align: center;
+    transform: translate(-50%, -50%) rotate(var(--turn, 0deg));
+}
+
+.mapnote.water {
+    color: #2438c4;              /* cobalt, like the river and the bay */
+    text-shadow: none;
+}
+
+.mapnote.bay {
+    font-size: 15px;
+    letter-spacing: 0.3em;
+    color: #ffffff;
+}
+
+
+/* ===================== INDEX OF PLACES ===================== */
+
+#places ol {
+    margin: 8px 0 0;
+    padding-left: 32px;
+}
+
+/* the place names are buttons that look like plain links */
+.placelink {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: #0000ee;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.placelink:hover {
+    background-color: #ffff99;
+}
+
+
+/* ===================== FOOTER ===================== */
+
+footer {
+    font-size: 15px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* the credits sit apart from the line with the name, a bit smaller and in gray */
+#credits {
+    margin-top: 16px;
+    font-size: 13px;
+    color: #6b6f72;
+}
+
+
+/* ===================== THE FLOATING WINDOW =====================
+   A small window opens on the map, right next to the point that was clicked; the rest of
+   the map stays visible and clickable around it. The code places it and moves it along. */
+
+/* the layer that holds the window covers the map but lets clicks go through to it */
+#popup {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+}
+
+#popup[hidden] {
+    display: none;
+}
+
+/* the window itself; the code sets its left/top next to the point */
+#popupwindow {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 340px;
+    height: 440px;
+    background-color: #fff4ea;                   /* the light cream of the map's streets */
+    border: 2px solid #2438c4;                   /* cobalt, like the river */
+    box-shadow: 6px 6px 0 #ff7a45;               /* a flat offset shadow in the roads' orange, like a print */
+    pointer-events: auto;
+    animation: popin 0.2s ease-out;
+}
+
+/* it grows out of the side that faces the point (the code sets transform-origin) */
+@keyframes popin {
+    from { transform: scale(0.85); opacity: 0; }
+    to   { transform: none; opacity: 1; }
+}
+
+/* title bar: a cobalt strip with the place name in cream */
+#titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 8px;
+    background-color: #2438c4;
+    color: #fff4ea;
+}
+
+#windowtitle {
+    font-size: 16px;
+    font-style: italic;
+    letter-spacing: 0.04em;
+}
+
+#closebutton {
+    width: 24px;
+    height: 22px;
+    padding: 0;
+    background: none;
+    border: 1px solid #fff4ea;
+    color: #fff4ea;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+#closebutton:hover {
+    background-color: #ff7a45;
+}
+
+#closebutton:active {
+    background-color: #fff4ea;
+    color: #2438c4;
+}
+
+/* the photo with the audio player underneath */
+#windowbody {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px;
+}
+
+#collagebox {
+    position: relative;
+    flex: 1;                   /* takes all the space above the player */
+    overflow: hidden;
+}
+
+/* the photo (one image per place; the collage is made outside the page):
+   as big as fits in the space, never cropped or stretched */
+#collagebox img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#player audio {
+    display: block;
+    width: 100%;
+}
+
+
+/* ===================== phones ===================== */
+
+@media (max-width: 700px) {
+    .maplabel {
+        font-size: 12px;
+    }
+
+    .mapnote {
+        font-size: 10px;
+    }
+
+    #popupwindow {
+        max-width: calc(100% - 16px);
+        height: 400px;
+    }
+}
+
+/* people who turned off animations on their computer: no pulsing, the window just appears */
+@media (prefers-reduced-motion: reduce) {
+    .spot::after {
+        animation: none;
+        opacity: 0;
+    }
+
+    #popupwindow {
+        animation: none;
+    }
+}

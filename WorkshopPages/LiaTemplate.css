@@ -1,7 +1,7 @@
 /* Body represents everything that exists on the page, so all content is referenced here. This is great for overall background and margins */
 body{
-    background-image: url("WorkshopImages/lia images/dollybg.png");
-    background-repeat: repeat; 
+    background-image: url("PersonalImages/PersonalPagesImages/Liaimages/screenshottempbg.png");
+    background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
     background-size: cover;

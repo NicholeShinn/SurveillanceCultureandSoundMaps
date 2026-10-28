@@ -45,6 +45,10 @@ h2 {
   font-family: 'Courier New', Courier, monospace;
 }
 
+.soundcloudplayer {
+  padding: 30px;
+}
+
 #Paragraph1{
     padding: 40px;
     margin: 10px;
@@ -253,20 +257,20 @@ h2 {
 }
 @keyframes truckanimation2 {
   0%   {
-    left:600px; top:0px;
-    transform: scale(.9, .9)}
+    left:900px; top:0px;
+    transform: scale(1.1), 1.1}
   50%   {
-    left:200px; top:0px;}
+    left:400px; top:0px;}
   60%   {
-    left:200px; top:0px;}
+    left:400px; top:0px;}
   100%  {
-    left: -900px; top:0px;
-    transform: scale(.9, .9)
+    left: -600px; top:0px;
+    transform: scale(1.1, 1.1)
   }
 }
 
 #truckanimation2 > img {
-    height: 400px;
+    height: 500px;
 }
 
 .group:after {
