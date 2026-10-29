@@ -1,6 +1,7 @@
 .sound-map {
   position: relative;
   width: 100%;
+  max-width: 1440px;
 }
 
 
@@ -11,7 +12,7 @@
 
 
 body{
-    background-image: url(PersonalPages/PersonalPagesImages/Liaimages/screenshottempbg.png);
+    background-image: url(https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalPagesImages/Liaimages/screenshottempbg.png);
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
