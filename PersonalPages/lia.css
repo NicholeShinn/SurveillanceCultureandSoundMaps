@@ -1,7 +1,7 @@
 .sound-map {
   position: relative;
   width: 100%;
-  max-width: 1000 px;
+  max-width: 900 px;
 }
 
 
@@ -16,7 +16,7 @@ body{
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-    background-size: cover;
+    background-size: fill;
     background-color: #ffff;
     cursor: none;
 }
