@@ -1,3 +1,9 @@
+.sound-map {
+  position: relative;
+  width: 100%;
+}
+
+
 @font-face {
     font-family: digital-clock;
     src: url("https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalFonts/digital-clock.otf") format("opentype");
