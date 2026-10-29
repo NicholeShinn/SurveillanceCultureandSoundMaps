@@ -1,7 +1,13 @@
 .sound-map {
   position: relative;
   width: 100%;
-  max-width: 10 px;
+  max-width: 1140 px;
+}
+
+.map-background {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 
