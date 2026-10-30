@@ -123,14 +123,13 @@ Your browser does not support the audio element.
 </p></div>
 </div>
 
-
 <script>
-        const cursor = document.querySelector('.handcursor');
+  const cursor = document.querySelector('.handcursor');
 
-        document.addEventListener('mousemove', function(event) {
-            cursor.style.left = event.pageX + 2 + 'px';
-            cursor.style.top = event.pageY + 2 + 'px';
-        });
+  document.addEventListener('mousemove', function(event) {
+    cursor.style.left = event.clientX + 'px';
+    cursor.style.top = event.clientY + 'px';
+  });
 </script>
    
 </body>
