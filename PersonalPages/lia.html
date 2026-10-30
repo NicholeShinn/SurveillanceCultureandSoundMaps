@@ -6,14 +6,35 @@
 </head>
   
 <body>
-<div id="Title">
+<!--div id="Title">
 <h1>Welcome to Gatlinburg</h1>
-</div> 
+</div--> 
 
-<img class="handcursor" src="https://nicholeshinn.github.io/SurveillanceCultureandSoundMaps/PersonalPages/PersonalPagesImages/Liaimages/hand cursor small.png" alt="Hand Cursor">
-    
 <div class="sound-map">
       <img src="file:///Users/liamusante/Documents/GitHub/SurveillanceCultureandSoundMaps/PersonalPages/PersonalPagesImages/Liaimages/leaf%20bg.jpg" class="map-background" alt="Sound map">
+
+<div class="imagebuttons">
+<img id="threechapels" src="file:///Users/liamusante/Documents/GitHub/SurveillanceCultureandSoundMaps/PersonalPages/PersonalPagesImages/Liaimages/3chapels.jpeg"/>
+<img id="wanderpool" src="file:///Users/liamusante/Documents/GitHub/SurveillanceCultureandSoundMaps/PersonalPages/PersonalPagesImages/Liaimages/wanderpool.jpeg"/>
+<img id="parkingbench" src="file:///Users/liamusante/Documents/GitHub/SurveillanceCultureandSoundMaps/PersonalPages/PersonalPagesImages/Liaimages/parkingbench.jpeg"/>
+<img id="ripleys" src="file:///Users/liamusante/Documents/GitHub/SurveillanceCultureandSoundMaps/PersonalPages/PersonalPagesImages/Liaimages/ripleys.jpeg"/>
+<img id="aquariumriver" src="file:///Users/liamusante/Documents/GitHub/SurveillanceCultureandSoundMaps/PersonalPages/PersonalPagesImages/Liaimages/aquariumriver.jpeg"/>
+<img id="gatlinburgtrail" src="file:///Users/liamusante/Documents/GitHub/SurveillanceCultureandSoundMaps/PersonalPages/PersonalPagesImages/Liaimages/gatlinburgtrail.jpeg"/>
+</div>
+
+<div class="handcursor" img src="file:///Users/liamusante/Documents/GitHub/SurveillanceCultureandSoundMaps/PersonalPages/PersonalPagesImages/Liaimages/hand%20cursor.png" alt="Hand Cursor"> </div>
+
+<script>
+document.getElementsByTagName("body")[0].style.cursor = "url('file:///Users/liamusante/Documents/GitHub/SurveillanceCultureandSoundMaps/PersonalPages/PersonalPagesImages/Liaimages/hand%20cursor%20small.png'), auto";
+
+
+ const cursor = document.querySelector('.handcursor');
+document.addEventListener('mousemove', function(event) {
+cursor.style.left = event.clientX + 'px';
+cursor.style.top = event.clientY + 'px';
+ });
+</script> 
+
 
 
 <br>
@@ -123,14 +144,7 @@ Your browser does not support the audio element.
 </p></div>
 </div>
 
-<script>
-  const cursor = document.querySelector('.handcursor');
 
-  document.addEventListener('mousemove', function(event) {
-    cursor.style.left = event.clientX + 'px';
-    cursor.style.top = event.clientY + 'px';
-  });
-</script>
    
 </body>
 

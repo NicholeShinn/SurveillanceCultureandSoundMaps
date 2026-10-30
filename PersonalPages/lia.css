@@ -10,6 +10,47 @@
   height: auto;
 }
 
+.imagebuttons {
+  width: 220px;
+  height: auto;
+  position: absolute;
+  z-index: 10;
+}
+
+#threechapels {
+top: 700px;
+  left: 1000px;
+}
+
+#wanderpool {
+  top: 500px;
+  left: 1000px;
+}
+
+#parkingbench {
+  top: 500px;
+  left: 800px;
+}
+
+#ripleys {
+  top: 500px;
+  left: 600px;
+}
+
+#aquariumriver{
+  top: 500px;
+  left: 400px;
+}
+
+#gatlinburgtrail {
+  top: 500px;
+  left: 200px;
+}
+
+
+
+
+
 
 @font-face {
     font-family: digital-clock;
@@ -30,7 +71,7 @@ body{
 .handcursor {
   width:95px;
   height:127px;
-  cursor:url("file:///Users/liamusante/Documents/GitHub/SurveillanceCultureandSoundMaps/PersonalPages/PersonalPagesImages/Liaimages/hand%20cursor.png") 10 3, auto;
+  cursor:url("file:///Users/liamusante/Documents/GitHub/SurveillanceCultureandSoundMaps/PersonalPages/PersonalPagesImages/Liaimages/hand%20cursor%20small.png") 10 3, auto;
 }
 
 h3 {
